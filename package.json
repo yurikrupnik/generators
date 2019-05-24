@@ -8,7 +8,7 @@
     "prebuild": "lerna exec -- rimraf dist",
     "prewatch": "npm run prebuild",
     "build": "lerna exec -- webpack",
-    "watch": "lerna exec -- rollup -c=../../rollup.config.js -w",
+    "watch": "lerna exec -- webpack -c=../../rollup.config.js -w",
     "prepublishOnly": "npm run build",
     "publish": "lerna publish"
   },

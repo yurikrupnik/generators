@@ -1,0 +1,50 @@
+{
+  "name": "generators",
+  "version": "1.0.0",
+  "description": "Custom Yeoman generators monorepo",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "lerna exec --parallel -- eslint app",
+    "test": "jest",
+    "prebuild": "lerna exec -- rimraf dist",
+    "prewatch": "npm run prebuild",
+    "build": "lerna exec -- rollup -c=../../rollup.config.js",
+    "watch": "lerna exec -- rollup -c=../../rollup.config.js -w",
+    "prepublishOnly": "npm run build",
+    "publish": "lerna publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yurikrupnik/generators.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yurikrupnik/generators/issues"
+  },
+  "homepage": "https://github.com/yurikrupnik/generators#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-syntax-object-rest-spread": "^7.2.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.6",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-import": "^2.17.2",
+    "jest": "^24.8.0",
+    "lerna": "^3.14.1",
+    "rollup": "^1.12.3",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.0.0",
+    "rollup-plugin-uglify": "^6.0.2",
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^2.0.0"
+  },
+  "dependencies": {}
+}

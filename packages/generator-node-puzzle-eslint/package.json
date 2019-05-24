@@ -7,7 +7,6 @@
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
-    "lib": "app",
     "test": "app/__tests__"
   },
   "files": [

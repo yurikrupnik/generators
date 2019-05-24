@@ -88,6 +88,4 @@ module.exports = class EslintGenerator extends Generator {
     install() {
         this.npmInstall(Array.from(this.packages), { 'save-dev': true });
     }
-}
-
-export default EslintGenerator;
+};

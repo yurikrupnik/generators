@@ -1,4 +1,4 @@
-const Generator = require('yeoman-generator/lib');
+const Generator = require('yeoman-generator');
 const util = require('util');
 const chalk = require('chalk');
 const exec = util.promisify(require('child_process').exec);

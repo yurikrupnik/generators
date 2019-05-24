@@ -15,7 +15,7 @@ module.exports = {
         path: path.resolve(process.cwd(), 'dist'),
         chunkFilename: '[name].js'
     },
-    mode: 'production',
+    mode: 'development',
     module: {
         rules: [
             {

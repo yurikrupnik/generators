@@ -7,7 +7,7 @@
     "test": "jest",
     "prebuild": "lerna exec -- rimraf dist",
     "prewatch": "npm run prebuild",
-    "build": "lerna exec -- rollup -c=../../rollup.config.js",
+    "build": "lerna exec -- webpack",
     "watch": "lerna exec -- rollup -c=../../rollup.config.js -w",
     "prepublishOnly": "npm run build",
     "publish": "lerna publish"
@@ -30,6 +30,7 @@
     "@babel/preset-env": "^7.4.5",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^5.0.3",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-loader": "^2.1.2",
@@ -44,6 +45,9 @@
     "rollup-plugin-node-resolve": "^5.0.0",
     "rollup-plugin-terser": "^5.0.0",
     "rollup-plugin-uglify": "^6.0.2",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-node-externals": "^1.7.2",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^2.0.0"
   },

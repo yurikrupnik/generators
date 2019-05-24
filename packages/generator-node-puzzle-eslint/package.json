@@ -1,0 +1,34 @@
+{
+  "name": "generator-node-puzzle-eslint",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "yurikrupnik <krupnik.yuri@gmail.com>",
+  "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-eslint#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "app",
+    "test": "app/__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yurikrupnik/generators.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/yurikrupnik/generators/issues"
+  },
+  "devDependencies": {
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^2.0.0"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "yeoman-generator": "^4.0.0"
+  }
+}

@@ -3,16 +3,16 @@ module.exports = function (api) {
     const presets = [
         ['@babel/preset-env', {
             // rootMode: 'upward',
-            'targets': {
-                'node': 'current'
+            targets: {
+                node: 'current'
             },
-            'modules': false,
-            'loose': true
+            modules: false,
+            loose: true
         }],
         // ['@babel/preset-react']
     ];
     const plugins = [
-        '@babel/plugin-syntax-object-rest-spread',
+        // '@babel/plugin-syntax-object-rest-spread',
         // '@babel/plugin-syntax-dynamic-import',
         // 'react-loadable/babel'
     ];
@@ -27,7 +27,7 @@ module.exports = function (api) {
         env: {
             test: {
                 plugins: [
-                    "@babel/plugin-transform-modules-commonjs"
+                    '@babel/plugin-transform-modules-commonjs'
                 ]
             }
         }

@@ -2,7 +2,6 @@
   "name": "generators",
   "version": "1.0.0",
   "description": "Custom Yeoman generators monorepo",
-  "main": "index.js",
   "scripts": {
     "pretest": "lerna exec --parallel -- eslint app",
     "test": "jest",
@@ -38,10 +37,12 @@
     "jest": "^24.8.0",
     "lerna": "^3.14.1",
     "rollup": "^1.12.3",
+    "rollup-plugin-auto-external": "^2.0.0",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.0.0",
+    "rollup-plugin-terser": "^5.0.0",
     "rollup-plugin-uglify": "^6.0.2",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^2.0.0"

@@ -10,7 +10,7 @@ module.exports = {
         __filename: true,
     },
     externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
-    devtool: 'source-map',
+    // devtool: 'source-map',
     entry: './index.js',
     output: {
         path: path.resolve(process.cwd(), 'dist'),

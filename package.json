@@ -4,8 +4,8 @@
   "description": "Custom Yeoman generators monorepo",
   "scripts": {
     "lint:scoped": "lerna run lint --scope generator-node-puzzle-eslint",
-    "dds": "lerna run test --scope generator-node-puzzle-eslint",
-    "builds": "lerna run build --scope generator-node-puzzle-eslint",
+    "dds": "lerna run test --scope generator-node-puzzle-babel",
+    "builds": "lerna run build --scope generator-node-puzzle-babel",
     "lint": "lerna exec --parallel -- eslint app",
     "test": "jest",
     "prebuild": "lerna exec -- rimraf dist",
@@ -35,6 +35,7 @@
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
     "copy-webpack-plugin": "^5.0.3",
+    "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-loader": "^2.1.2",

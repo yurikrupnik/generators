@@ -16,7 +16,7 @@ jobs:
           command: npx lerna bootstrap
       - run:
           name: Linter
-          command: npm run lint
+          command: npm run shit
   build:
 #    working_directory: /repo
 #    docker:

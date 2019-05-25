@@ -61,5 +61,12 @@
   },
   "dependencies": {
     "yeoman-generator": "^4.0.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "templates"
+    ]
   }
 }

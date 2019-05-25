@@ -1,0 +1,33 @@
+{
+  "name": "generator-node-puzzle-jest",
+  "version": "1.0.0",
+  "description": "Generator for jest test runner",
+  "author": "yurikrupnik <krupnik.yuri@gmail.com>",
+  "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-jest#readme",
+  "license": "ISC",
+  "main": "app/generator-node-puzzle-jest.js",
+  "directories": {
+    "lib": "app",
+    "test": "app/__tests__"
+  },
+  "files": [
+    "app"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yurikrupnik/generators.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/yurikrupnik/generators/issues"
+  },
+  "dependencies": {
+    "yeoman-generator": "^4.0.0"
+  },
+  "devDependencies": {
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^2.0.0"
+  }
+}

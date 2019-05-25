@@ -8,7 +8,7 @@ jobs:
       TEST_RESULTS: /tmp/test-results
     steps:
       - checkout
-          - run:
+      - run:
           name: install-npm-wee
           command: npm install
       - run:

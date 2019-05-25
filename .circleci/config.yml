@@ -12,6 +12,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: install-npm-wee
+          command: npx lerna bootstrap
+      - run:
           name: Linter
           command: npm run lint
   build:

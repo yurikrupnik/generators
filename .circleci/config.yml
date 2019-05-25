@@ -19,7 +19,24 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-
+      - run:
+        name: update-npm
+        command: 'sudo npm install -g npm@5'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm-wee
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: build
+          command: npm run build
+  #          - store_artifacts:
+#              path: dist/bundles-report/index.html
+#              prefix: bundle-report-html
 
   build:
     <<: *defaults

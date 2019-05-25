@@ -65,12 +65,10 @@ jobs:
       - checkout
       - run:
           name: Build
-          command: |
-            /scripts/go_build.sh ${PROJECT_NAME} ${PROJECT_NAME}
+          command: lerna run build --scope ${PROJECT_NAME}
       - run:
           name: Run Tests
-          command: |
-            /scripts/go_test.sh ${TEST_RESULTS} ${PROJECT_NAME}
+          command: lerna run test --scope ${PROJECT_NAME}
       - store_artifacts:
           path: /tmp/test-results
           destination: raw-test-output

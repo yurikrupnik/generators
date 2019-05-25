@@ -1,0 +1,11 @@
+{
+  "groups": {
+    "generators": {
+      "packages": [
+        "generator-node-puzzle-babel/package.json",
+        "generator-node-puzzle-eslint/package.json",
+        "generator-node-puzzle-jest/package.json"
+      ]
+    }
+  }
+}

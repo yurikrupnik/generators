@@ -1,4 +1,4 @@
-![Build Status](https://img.shields.io/bundlephobia/min/generator-node-puzzle-eslint.svg)
+![Build Status](https://img.shields.io/bundlephobia/min/generator-node-puzzle-babel.svg)
 ![CircleCI](https://circleci.com/gh/yurikrupnik/generators.svg?style=svg)
 ![Build Status](https://travis-ci.org/yurikrupnik/generators.svg?branch=master)
 ![Coverage Status](https://coveralls.io/repos/github/yurikrupnik/generators/badge.svg?branch=master)
@@ -6,16 +6,16 @@
 
 # generator-node-puzzle-eslint
 
-generator-node-puzzle-eslint creates .eslintrc file with support for plugins and configs.
+generator-node-puzzle-eslint creates .eslintrc and .eslintignore files with packages.
 
 ## Install
 ```
 npm install --global generator-node-puzzle-eslint
 ```
 ## Usage
-Example using eslint-config-airbrb
+
 ```
-yo eslinter --configs=airbnb
+yo node-puzzle-eslint
 ```
 
 ## Extending generator
@@ -26,5 +26,4 @@ this.composeWith(require.resolve('generator-node-puzzle-eslint'), {
 ```
 
 ## Options
-- plugins (String, default '') list of plugins separated by , .
-- configs (String, default '') list of plugins separated by , .
+- destination (String, default '') destination path for .babelrc file.

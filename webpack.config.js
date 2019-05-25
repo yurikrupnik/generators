@@ -5,10 +5,10 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
     context: path.resolve(process.cwd(), 'app'),
     target: 'node',
-    // node: {
-    //     __dirname: false,
-    //     __filename: true,
-    // },
+    node: {
+        __dirname: false,
+        __filename: true,
+    },
     externals: [nodeExternals()], // in order to ignore all modules in node_modules folder
     devtool: 'source-map',
     entry: './index.js',

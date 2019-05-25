@@ -8,9 +8,9 @@
 ![dependencies Status](https://david-dm.org/yurikrupnik/generators/status.svg)
 ![devDependencies Status](https://david-dm.org/yurikrupnik/generators/dev-status.svg)
 ![peerDependencies Status](https://david-dm.org/yurikrupnik/generators/peer-status.svg)
+[![Greenkeeper badge](https://badges.greenkeeper.io/yurikrupnik/generators.svg)](https://greenkeeper.io/)
 # generators
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/yurikrupnik/generators.svg)](https://greenkeeper.io/)
 
 Custom Yeoman generators monorepo 
 

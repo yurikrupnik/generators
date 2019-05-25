@@ -86,6 +86,7 @@ module.exports = class EslintGenerator extends Base {
     }
 
     install() {
-        this.npmInstall(Array.from(this.packages), { 'save-dev': true });
+        this.npmInstall(Array.from(this.packages),
+            { 'save-dev': true });
     }
 };

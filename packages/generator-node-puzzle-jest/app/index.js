@@ -3,7 +3,6 @@ import Base from 'yeoman-generator';
 class JestGenerator extends Base {
     constructor(args, opts) {
         super(args, opts);
-
         this.option('testEnvironment', {
             type: String,
             required: false,

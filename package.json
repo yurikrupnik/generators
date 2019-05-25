@@ -15,7 +15,7 @@
     "build": "lerna exec -- webpack",
     "watch": "lerna exec -- webpack -w",
     "prepublishOnly": "npm run build",
-    "publish": "lerna publish from-git --yes"
+    "publish": "lerna publish"
   },
   "repository": {
     "type": "git",

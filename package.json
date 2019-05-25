@@ -13,7 +13,7 @@
     "build": "lerna exec -- webpack",
     "watch": "lerna exec -- webpack -c=../../rollup.config.js -w",
     "prepublishOnly": "npm run build",
-    "publish": "lerna publish"
+    "publish": "lerna publish from-git --yes"
   },
   "repository": {
     "type": "git",

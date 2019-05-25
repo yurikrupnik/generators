@@ -32,6 +32,7 @@ module.exports = class EslintGenerator extends Generator {
             await Promise.all(this._createPromises('config', configs, this.extendsArray, true))
                 .then(this._handlePeerDependenciesPackages.bind(this));
         }
+
         if (plugins.length) {
             await Promise.all(this._createPromises('plugin', plugins, this.plugins))
                 .then((res) => {

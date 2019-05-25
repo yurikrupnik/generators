@@ -15,7 +15,8 @@
   },
   "scripts": {
     "lint": "eslint app",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "build": "webpack --config=../../webpack.config.js"
   },
   "bugs": {
     "url": "https://github.com/yurikrupnik/generators/issues"

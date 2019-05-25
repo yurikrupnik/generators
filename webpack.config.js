@@ -1,7 +1,6 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const CopyPlugin = require('copy-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     context: path.resolve(process.cwd(), 'app'),
@@ -30,6 +29,5 @@ module.exports = {
         new CopyPlugin([
             { from: 'templates', to: 'templates' }
         ]),
-        // new BundleAnalyzerPlugin()
     ]
 };

@@ -3,6 +3,9 @@ jobs:
   build:
     docker:
       - image: circleci/node:11
+    environment:
+      PROJECT_NAME: ${PROJECT_NAME}
+      TEST_RESULTS: /tmp/test-results
     steps:
       - checkout
   lint:
@@ -14,6 +17,9 @@ jobs:
       TEST_RESULTS: /tmp/test-results
     steps:
       - checkout
+      - run:
+          name: Lint
+          command: lerna run lint --scope ${PROJECT_NAME}
 #      - run:
 #          name: Build
 #          command: lerna run build --scope ${PROJECT_NAME}

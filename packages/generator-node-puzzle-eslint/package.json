@@ -14,7 +14,8 @@
     "url": "git+https://github.com/yurikrupnik/generators.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "lint": "eslint app",
+    "test": "jest --runInBand"
   },
   "bugs": {
     "url": "https://github.com/yurikrupnik/generators/issues"

@@ -15,6 +15,12 @@ defaults: &defaults
 #      ignore: /.*/
 
 jobs:
+  trying:
+    <<: *defaults
+    steps:
+      - checkout
+
+
   build:
     <<: *defaults
     steps:
@@ -96,5 +102,6 @@ workflows:
   version: 2
   test_all:
     jobs:
-      - build
-      - test
+      - trying
+#      - build
+#      - test

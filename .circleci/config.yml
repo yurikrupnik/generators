@@ -9,6 +9,8 @@ jobs:
     steps:
       - checkout
       - run:
+
+      - run:
           name: Build
           command: lerna run build --scope ${PROJECT_NAME}
   lint:
@@ -20,6 +22,7 @@ jobs:
       TEST_RESULTS: /tmp/test-results
     steps:
       - checkout
+      - run: npm install
       - run:
           name: Lint
           command: lerna run lint --scope ${PROJECT_NAME}

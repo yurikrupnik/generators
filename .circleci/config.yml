@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: /go/src/github.com/tufin/circleci-monorepo
+    working_directory: /repo
     docker:
       - image: circleci/node:11
 #    environment:
@@ -15,21 +15,21 @@ jobs:
       - run:
           name: Build
           command: npm run build
-  lint:
-    working_directory: /go/src/github.com/tufin/circleci-monorepo
-    docker:
-      - image: circleci/node:11
-    environment:
-      PROJECT_NAME: ${PROJECT_NAME}
-      TEST_RESULTS: /tmp/test-results
-    steps:
-      - checkout
-      - run:
-          name: install-npm-wee
-          command: npm install
-      - run:
-          name: Lint
-          command: npm run lint
+#  lint:
+#    working_directory: /go/src/github.com/tufin/circleci-monorepo
+#    docker:
+#      - image: circleci/node:11
+#    environment:
+#      PROJECT_NAME: ${PROJECT_NAME}
+#      TEST_RESULTS: /tmp/test-results
+#    steps:
+#      - checkout
+#      - run:
+#          name: install-npm-wee
+#          command: npm install
+#      - run:
+#          name: Lint
+#          command: npm run lint
 #      - run:
 #          name: Build
 #          command: lerna run build --scope ${PROJECT_NAME}

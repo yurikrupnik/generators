@@ -7,16 +7,21 @@ defaults: &defaults
     - image: circleci/node:11
 
 jobs:
-#  lint:
-#    <<: *defaults
-#    steps:
-#      - checkout
-#      - run:
-#          name: install-npm-wee
-#          command: npx lerna bootstrap
-#      - run:
-#          name: Linter
-#          command: npm run shit
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: install-npm-wee
+          command: npx lerna bootstrap
+      - run:
+          name: test
+          command: npm run test -- --coverage
+            #      - codecov/upload
+            - store_artifacts:
+                path: coverage
+            - store_test_results:
+                path: coverage/lcov-report
   lint:
     <<: *defaults
     steps:
@@ -25,7 +30,7 @@ jobs:
           name: install-npm-wee
           command: npm i
       - run:
-          name: Build
+          name: Linter
           command: npm run lint
   build:
     <<: *defaults

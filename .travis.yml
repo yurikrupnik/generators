@@ -12,7 +12,7 @@ cache:
 before_script:
   - npm i
 script:
-  - npm run test
+  - npm run build
 before_deploy:
   - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
 #deploy:

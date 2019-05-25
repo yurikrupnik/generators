@@ -15,28 +15,6 @@ defaults: &defaults
 #      ignore: /.*/
 
 jobs:
-  trying:
-    <<: *defaults
-    steps:
-      - checkout
-      - run:
-        name: update-npm
-        command: 'sudo npm install -g npm@5'
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: install-npm-wee
-          command: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
-      - run:
-          name: build
-          command: npm run build
-  #          - store_artifacts:
-#              path: dist/bundles-report/index.html
-#              prefix: bundle-report-html
 
   build:
     <<: *defaults
@@ -79,15 +57,15 @@ jobs:
             - ./node_modules
       - run:
           name: test
-          command: npm run test -- --coverage
-      - run:
-          name: test e2e
-          command: npm run test:e2e
-      - codecov/upload
-      - store_artifacts:
-          path: coverage
-      - store_test_results:
-          path: coverage/lcov-report
+          command: npm run test
+#      - run:
+#          name: test e2e
+#          command: npm run test:e2e
+#      - codecov/upload
+#      - store_artifacts:
+#          path: coverage
+#      - store_test_results:
+#          path: coverage/lcov-report
 
   deploy_to_npm:
     <<: *defaults
@@ -119,6 +97,5 @@ workflows:
   version: 2
   test_all:
     jobs:
-      - trying
-#      - build
-#      - test
+      - build
+      - test

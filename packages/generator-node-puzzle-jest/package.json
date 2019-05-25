@@ -29,5 +29,16 @@
   "devDependencies": {
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^2.0.0"
-  }
+  },
+  "keywords": [
+    "node",
+    "module",
+    "scaffold",
+    "cli",
+    "yeoman-generator",
+    "testing",
+    "jest",
+    "coverage",
+    "reports"
+  ]
 }

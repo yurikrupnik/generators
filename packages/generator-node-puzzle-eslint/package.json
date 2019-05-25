@@ -22,7 +22,6 @@
     "url": "https://github.com/yurikrupnik/generators/issues"
   },
   "devDependencies": {
-    "babel-jest": "^24.8.0",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^2.0.0"
   },
@@ -31,6 +30,11 @@
     "yeoman-generator": "^4.0.0"
   },
   "keywords": [
+    "node",
+    "module",
+    "scaffold",
+    "reports",
+    "cli",
     "yeoman-generator",
     "eslit",
     ".eslintrc",

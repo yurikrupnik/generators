@@ -8,8 +8,9 @@ jobs:
       TEST_RESULTS: /tmp/test-results
     steps:
       - checkout
-      - run:
-
+          - run:
+          name: install-npm-wee
+          command: npm install
       - run:
           name: Build
           command: lerna run build --scope ${PROJECT_NAME}

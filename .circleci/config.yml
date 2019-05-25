@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: install-npm-wee
-          command: npm install
+          command: npx lerna bootstrap
       - run:
           name: Build
           command: npx lerna run build --scope ${PROJECT_NAME}

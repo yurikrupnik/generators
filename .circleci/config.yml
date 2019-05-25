@@ -22,7 +22,9 @@ jobs:
       TEST_RESULTS: /tmp/test-results
     steps:
       - checkout
-      - run: npm install
+      - run:
+          name: install-npm-wee
+          command: npm install
       - run:
           name: Lint
           command: lerna run lint --scope ${PROJECT_NAME}

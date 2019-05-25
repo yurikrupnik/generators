@@ -11,7 +11,6 @@ module.exports = class EslintGenerator extends Generator {
         this.packages = new Set(['eslint', 'babel-eslint']);
         this.argument('configs', { type: String, required: false, default: '' });
         this.argument('plugins', { type: String, required: false, default: '' });
-
         this.option('personal', {
             type: Boolean,
             required: false,

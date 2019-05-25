@@ -7,16 +7,16 @@ defaults: &defaults
     - image: circleci/node:11
 
 jobs:
-  lint:
-    <<: *defaults
-    steps:
-      - checkout
-      - run:
-          name: install-npm-wee
-          command: npx lerna bootstrap
-      - run:
-          name: Linter
-          command: npm run shit
+#  lint:
+#    <<: *defaults
+#    steps:
+#      - checkout
+#      - run:
+#          name: install-npm-wee
+#          command: npx lerna bootstrap
+#      - run:
+#          name: Linter
+#          command: npm run shit
   build:
 #    working_directory: /repo
 #    docker:

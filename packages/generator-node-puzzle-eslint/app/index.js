@@ -1,9 +1,9 @@
-const Generator = require('yeoman-generator');
+const Base = require('yeoman-generator');
 const util = require('util');
 const chalk = require('chalk');
 const exec = util.promisify(require('child_process').exec); // a;
 
-module.exports = class EslintGenerator extends Generator {
+module.exports = class EslintGenerator extends Base {
     constructor(args, opts) {
         super(args, opts);
         this.extendsArray = [];

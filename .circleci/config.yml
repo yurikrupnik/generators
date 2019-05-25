@@ -17,13 +17,17 @@ jobs:
 #      - run:
 #          name: Linter
 #          command: npm run shit
+  lint:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: install-npm-wee
+          command: npm i
+      - run:
+          name: Build
+          command: npm run lint
   build:
-#    working_directory: /repo
-#    docker:
-#      - image: circleci/node:11
-#    environment:
-#      PROJECT_NAME: ${PROJECT_NAME}
-#      TEST_RESULTS: /tmp/test-results
     <<: *defaults
     steps:
       - checkout

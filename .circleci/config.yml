@@ -59,40 +59,43 @@ jobs:
     docker:
       - image: circleci/node:11
     environment:
-      PROJECT_NAME: service1
+      PROJECT_NAME: ${PROJECT_NAME}
       TEST_RESULTS: /tmp/test-results
     steps:
       - checkout
+#      - run:
+#          name: Build
+#          command: lerna run build --scope ${PROJECT_NAME}
+#      - run:
+#          name: Run Tests
+#          command: lerna run test --scope ${PROJECT_NAME}
       - run:
-          name: Build
-          command: lerna run build --scope ${PROJECT_NAME}
-      - run:
-          name: Run Tests
-          command: lerna run test --scope ${PROJECT_NAME}
+          name: Lint
+          command: lerna run lint --scope ${PROJECT_NAME}
       - store_artifacts:
           path: /tmp/test-results
           destination: raw-test-output
       - store_test_results:
           path: /tmp/test-results
-  service2:
-    working_directory: /go/src/github.com/tufin/circleci-monorepo
-    docker:
-      - image: tufin/circleci-golang
-    environment:
-      PROJECT_NAME: service2
-      TEST_RESULTS: /tmp/test-results
-    steps:
-      - checkout
-      - run:
-          name: Build
-          command: |
-            /scripts/go_build.sh ${PROJECT_NAME} ${PROJECT_NAME}
-      - run:
-          name: Run Tests
-          command: |
-            /scripts/go_test.sh ${TEST_RESULTS} ${PROJECT_NAME}
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: raw-test-output
-      - store_test_results:
-          path: /tmp/test-results
+#  service2:
+#    working_directory: /go/src/github.com/tufin/circleci-monorepo
+#    docker:
+#      - image: tufin/circleci-golang
+#    environment:
+#      PROJECT_NAME: ${PROJECT_NAME}
+#      TEST_RESULTS: /tmp/test-results
+#    steps:
+#      - checkout
+#      - run:
+#          name: Build
+#          command: |
+#            /scripts/go_build.sh ${PROJECT_NAME} ${PROJECT_NAME}
+#      - run:
+#          name: Run Tests
+#          command: |
+#            /scripts/go_test.sh ${TEST_RESULTS} ${PROJECT_NAME}
+#      - store_artifacts:
+#          path: /tmp/test-results
+#          destination: raw-test-output
+#      - store_test_results:
+#          path: /tmp/test-results

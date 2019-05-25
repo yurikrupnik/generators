@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Custom Yeoman generators monorepo",
   "scripts": {
-    "lint": "lerna run lint --scope generator-node-puzzle-eslint",
+    "lint:scoped": "lerna run lint --scope generator-node-puzzle-eslint",
     "dds": "lerna run test --scope generator-node-puzzle-eslint",
     "builds": "lerna run build --scope generator-node-puzzle-eslint",
-    "pretest": "lerna exec --parallel -- eslint app",
+    "lint": "lerna exec --parallel -- eslint app",
     "test": "jest",
     "prebuild": "lerna exec -- rimraf dist",
     "prewatch": "npm run prebuild",

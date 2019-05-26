@@ -1,9 +1,10 @@
-const Base = require('yeoman-generator');
-const util = require('util');
-const chalk = require('chalk');
+import Base from 'yeoman-generator';
+import chalk from 'chalk';
+import util from 'util';
+
 const exec = util.promisify(require('child_process').exec); // a;
 
-module.exports = class EslintGenerator extends Base {
+class EslintGenerator extends Base {
     constructor(args, opts) {
         super(args, opts);
         this.extendsArray = [];
@@ -89,4 +90,6 @@ module.exports = class EslintGenerator extends Base {
         this.npmInstall(Array.from(this.packages),
             { 'save-dev': true });
     }
-};
+}
+
+export default EslintGenerator;

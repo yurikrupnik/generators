@@ -14,16 +14,22 @@ const plugins = [
     }),
     resolve({}),
     commonjs({
-        exclude: /node_modules/
+        // exclude: /node_modules/
     }),
     autoExternal()
 ];
 
 export default {
     input,
-    output: {
-        file: path.join(name, 'dist', `${fileName}`),
-        format: 'cjs'
-    },
+    output: [
+        {
+            file: path.join(name, 'dist', 'cmj', `${fileName}`),
+            format: 'cjs'
+        },
+        {
+            file: path.join(name, 'dist', 'esm', `${fileName}`),
+            format: 'esm'
+        }
+    ],
     plugins
 };

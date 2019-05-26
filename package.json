@@ -12,7 +12,7 @@
     "test": "jest",
     "prebuild": "lerna exec -- rimraf dist && npm run test",
     "prewatch": "npm run prebuild",
-    "build": "lerna exec -- webpack",
+    "build": "lerna exec -- rollup -c=../../rollup.config.js",
     "watch": "lerna exec -- webpack -w",
     "prepublishOnly": "npm run build",
     "publish": "lerna publish"

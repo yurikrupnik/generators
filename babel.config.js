@@ -6,7 +6,7 @@ module.exports = function (api) {
             targets: {
                 node: 'current'
             },
-            // modules: false,
+            modules: false,
             // loose: true
         }],
         // ['@babel/preset-react']

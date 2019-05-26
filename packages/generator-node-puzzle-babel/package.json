@@ -5,11 +5,8 @@
   "author": "yurikrupnik <krupnik.yuri@gmail.com>",
   "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-babel#readme",
   "license": "ISC",
-  "main": "dist/main.js",
-  "directories": {
-    "lib": "app",
-    "test": "app/__tests__"
-  },
+  "main": "dist/cmj/index.js",
+  "module": "dist/esm/index.js",
   "files": [
     "dist"
   ],

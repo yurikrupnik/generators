@@ -1,4 +1,4 @@
-const Base = require('yeoman-generator');
+import Base from 'yeoman-generator';
 
 class BabelGenerator extends Base {
     constructor(args, opts) {

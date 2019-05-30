@@ -19,7 +19,7 @@ describe('Eslint generator', () => {
             assert.noFileContent('.eslintrc', 'jest');
         }));
 
-    test('use generator with configs and plugins options', () => helpers
+    test('use generator with configs and plugins options', async () => helpers
         .run(path.join(__dirname, '../index.js'))
         .withOptions({
             configs: 'airbnb',
@@ -29,9 +29,9 @@ describe('Eslint generator', () => {
             assert.file('.eslintrc');
             assert.fileContent('.eslintrc', 'airbnb');
             assert.fileContent('.eslintrc', 'jest');
-        }));
+        }), 100000);
 
-    test('use generator configs and plugins options handle errors', () => helpers
+    test('use generator configs and plugins options handle errors', async () => helpers
         .run(path.join(__dirname, '../index.js'))
         .withOptions({
             configs: 'airbnb,none',
@@ -42,5 +42,5 @@ describe('Eslint generator', () => {
             assert.fileContent('.eslintrc', 'airbnb');
             assert.noFileContent('.eslintrc', 'none');
             assert.fileContent('.eslintrc', 'jest');
-        }));
+        }), 100000);
 });

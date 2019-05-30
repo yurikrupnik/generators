@@ -5,7 +5,7 @@ import path from 'path';
 import autoExternal from 'rollup-plugin-auto-external';
 
 const name = process.cwd();
-const input = path.join(name, 'app/index.js');
+const input = path.join(name, 'src/index.js');
 
 const fileName = 'index.js';
 const plugins = [
@@ -23,11 +23,11 @@ export default {
     input,
     output: [
         {
-            file: path.join(name, 'dist', 'cmj', `${fileName}`),
+            file: path.join(name, 'app', 'cmj', `${fileName}`),
             format: 'cjs'
         },
         {
-            file: path.join(name, 'dist', 'esm', `${fileName}`),
+            file: path.join(name, 'app', 'esm', `${fileName}`),
             format: 'esm'
         }
     ],

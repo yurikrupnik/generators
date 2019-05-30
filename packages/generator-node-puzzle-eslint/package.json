@@ -5,19 +5,19 @@
   "author": "yurikrupnik <krupnik.yuri@gmail.com>",
   "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-eslint#readme",
   "license": "ISC",
-  "main": "dist/cmj/index.js",
-  "module": "dist/esm/index.js",
+  "main": "app/cmj/index.js",
+  "module": "app/esm/index.js",
   "files": [
-    "dist"
+    "app"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yurikrupnik/generators.git"
   },
   "scripts": {
-    "lint": "eslint app",
+    "lint": "eslint src",
     "test": "jest --runInBand",
-    "build": "webpack --config=../../webpack.config.js"
+    "build": "rollup -c=../../rollup.config.js"
   },
   "bugs": {
     "url": "https://github.com/yurikrupnik/generators/issues"

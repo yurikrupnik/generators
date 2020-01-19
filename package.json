@@ -5,16 +5,16 @@
   "scripts": {
     "lint:scoped": "lerna run lint --scope generator-node-puzzle-eslint",
     "dds": "lerna run build",
-    "builds": "lerna run build --scope generator-node-puzzle-babel",
+    "build": "lerna run --parallel build",
     "start": "todo create exit 1",
     "lint": "lerna exec --parallel -- eslint src",
     "pretests": "npm run lint",
     "test": "jest",
-    "prebuild": "lerna exec -- rimraf app && npm run test",
-    "prewatch": "npm run prebuild",
-    "build": "lerna exec -- rollup -c=../../rollup.config.js",
-    "prepublishOnly": "npm run build",
-    "publish": "lerna publish"
+    "prebuilda": "lerna exec -- rimraf app && npm run test",
+    "prewatcha": "npm run prebuild",
+    "builda": "lerna exec -- rollup -c=../../rollup.config.js",
+    "prepublishOnlya": "npm run build",
+    "publisha": "lerna publish"
   },
   "repository": {
     "type": "git",
@@ -47,6 +47,7 @@
     "rollup-plugin-auto-external": "^2.0.0",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-copy": "^3.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.0.0",
     "rollup-plugin-terser": "^5.0.0",

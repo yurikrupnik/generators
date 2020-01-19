@@ -1,4 +1,5 @@
-var Generator = require('yeoman-generator/lib');
+import Generator from 'yeoman-generator';
+import ReactGenerator from 'generator-node-puzzle-react';
 // var path = require('path');
 // var webpack = require('../webpack/app');
 // var G = require('generator-webpack-mussia');
@@ -6,13 +7,15 @@ var Generator = require('yeoman-generator/lib');
 // var reduce = require('lodash.reduce');
 // const utils = require('./utils');
 // const questions = require('./questions');
-
-module.exports = class ClientGenerator extends Generator {
+class ClientGenerator extends Generator {
     constructor(args, opts) {
         super(args, opts);
 
         this.types = ['react', 'vue', 'angular'];
-
+        // this.composeWith({
+        //     Generator: ReactGenerator,
+        //     path: require.resolve('generator-node-puzzle-react')
+        // });
         this.option('type', {
             type: String,
             required: false,
@@ -42,7 +45,7 @@ module.exports = class ClientGenerator extends Generator {
             {
                 type: 'list',
                 name: 'viewEngine',
-                message: 'Choose client side library/framework',
+                message: 'Choose app side library/framework',
                 choices: [
                     {
                         value: 'react',
@@ -69,29 +72,43 @@ module.exports = class ClientGenerator extends Generator {
         ]);
     }
 
-    configuring() {}
-
     writing() {
+        // this.fs.extendJSON(this.destinationPath('package.json'), {
+        //     name: 'al'
+        // });
         const { props } = this;
         const { sass } = props;
         if (props.viewEngine === 'react') {
-            this.composeWith(require.resolve('../react/generators/app'), {
-                sass,
-                // srr: true
+            console.log('react');
+            this.composeWith({
+                Generator: ReactGenerator,
+                path: require.resolve('generator-node-puzzle-react')
+            }, {
+                appname: 'cs'
+                // arguments: []
+            }, {
+                shit:'as'
             });
-        } else if (props.viewEngine === 'vue') {
-            this.composeWith(require.resolve('../vue/generators/app'), {
-                sass
-            });
-        } else if (props.viewEngine === 'angular') {
-            this.composeWith(require.resolve('../angular/generators/app'), {
-                sass
-            });
+            // this.composeWith('generators-node-puzzle-react/generators:app', {
+            //     sass,
+            //     // srr: true
+            // });
+        } else {
+            console.log('no react');
         }
+        // else if (props.viewEngine === 'vue') {
+        //     this.composeWith(require.resolve('../vue/generators/app'), {
+        //         sass
+        //     });
+        // } else if (props.viewEngine === 'angular') {
+        //     this.composeWith(require.resolve('../angular/generators/app'), {
+        //         sass
+        //     });
+        // }
     }
 
     _handleClientWebpackPackages() {
-        const {options} = this;
+        const { options } = this;
         const sass = options.sass ? ['node-sass', 'sass-loader'] : [];
         // const loadableDev = options.loadable ? ['@babel/plugin-syntax-dynamic-import'] : [];
         this.npmInstall([
@@ -104,14 +121,20 @@ module.exports = class ClientGenerator extends Generator {
             'optimize-css-assets-webpack-plugin',
             'style-loader',
             'webpack-dev-server'
-        ].concat(sass), {'save-dev': true});
+        ].concat(sass), { 'save-dev': true });
     }
 
     install() {
         // this._handleClientWebpackPackages();
+        // this.composeWith({
+        //     Generator: ReactGenerator,
+        //     path: require.resolve('generator-node-puzzle-react')
+        // });
     }
 
     end() {
-        this.log(`You have finished building ClientGenerator.`);
+        this.log('You have finished building ClientGenerator.');
     }
-};
+}
+
+export default ClientGenerator;

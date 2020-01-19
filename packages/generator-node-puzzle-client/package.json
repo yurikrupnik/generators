@@ -1,0 +1,62 @@
+{
+  "name": "generator-node-puzzle-client",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "yurikrupnik <krupnik.yuri@gmail.com>",
+  "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-client#readme",
+  "license": "ISC",
+  "main": "generators/app/index.js",
+  "files": [
+    "generators"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yurikrupnik/generators.git"
+  },
+  "scripts": {
+    "start": "rollup -c=../../rollup.config.js -w",
+    "lint": "eslint src",
+    "test": "jest --runInBand",
+    "prebuild": "rimraf generators",
+    "build": "rollup -c=../../rollup.config.js"
+  },
+  "bugs": {
+    "url": "https://github.com/yurikrupnik/generators/issues"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "scaffold",
+    "node",
+    "module",
+    "cli",
+    "react",
+    "react-router",
+    "sass",
+    "code split",
+    "dynamic import",
+    "babel",
+    "front end",
+    "frontEnd",
+    "back-end",
+    "webpack",
+    "webpack-dev-server",
+    "eslint",
+    "express",
+    "koa",
+    "passport",
+    "server",
+    "app",
+    "fullstack",
+    "mongodb",
+    "session",
+    "auth"
+  ],
+  "dependencies": {
+    "generator-node-puzzle-react": "^1.0.0",
+    "yeoman-generator": "^3.2.0"
+  },
+  "devDependencies": {
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^1.9.1"
+  }
+}

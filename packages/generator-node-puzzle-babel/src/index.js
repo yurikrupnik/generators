@@ -45,4 +45,4 @@ class BabelGenerator extends Base {
     }
 }
 
-module.exports = BabelGenerator;
+export default BabelGenerator;

@@ -1,15 +1,21 @@
 {
-  "name": "generator-node-puzzle-jest",
-  "version": "1.0.3",
-  "description": "Generator for jest test runner",
+  "name": "generator-node-puzzle-assets",
+  "version": "1.0.0",
+  "description": "> TODO: description",
   "author": "yurikrupnik <krupnik.yuri@gmail.com>",
-  "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-jest#readme",
+  "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-assets#readme",
   "license": "ISC",
-  "main": "app/index.cjs.js",
-  "module": "app/index.esm.js",
+  "main": "dist/generators/app/index.cjs.js",
+  "module": "dist/generators/app/index.esm.js",
   "files": [
     "dist"
   ],
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "templates"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yurikrupnik/generators.git"
@@ -36,9 +42,9 @@
     "scaffold",
     "cli",
     "yeoman-generator",
-    "testing",
-    "jest",
-    "coverage",
-    "reports"
+    "babel",
+    ".babelrc",
+    "transpiler",
+    "esm"
   ]
 }

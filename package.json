@@ -3,18 +3,22 @@
   "version": "1.0.0",
   "description": "Custom Yeoman generators monorepo",
   "scripts": {
-    "lint:scoped": "lerna run lint --scope generator-node-puzzle-eslint",
-    "dds": "lerna run build",
+    "prestart": "lerna bootstrap",
+    "start": "lerna run --parallel start",
+    "poststart": "lerna exec --stream -- npm link",
+    "lint": "lerna run --parallel link",
+    "stop": "lerna exec --stream -- npm unlink",
     "build": "lerna run --parallel build",
-    "start": "todo create exit 1",
-    "lint": "lerna exec --parallel -- eslint src",
+    "pi": "lerna exec --parallel -- npm i",
+
     "pretests": "npm run lint",
     "test": "jest",
     "prebuilda": "lerna exec -- rimraf app && npm run test",
     "prewatcha": "npm run prebuild",
     "builda": "lerna exec -- rollup -c=../../rollup.config.js",
     "prepublishOnlya": "npm run build",
-    "publisha": "lerna publish"
+    "publisha": "lerna publish",
+    "npm-publish": "bash scripts/npm-publish.sh"
   },
   "repository": {
     "type": "git",
@@ -37,6 +41,7 @@
     "babel-loader": "^8.0.6",
     "copy-webpack-plugin": "^5.0.3",
     "coveralls": "^3.0.3",
+    "docdash": "^1.1.1",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-loader": "^2.1.2",
@@ -48,6 +53,7 @@
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-copy": "^3.1.0",
+    "rollup-plugin-jsdoc": "^0.1.2",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.0.0",
     "rollup-plugin-terser": "^5.0.0",

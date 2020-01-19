@@ -5,16 +5,16 @@
   "author": "yurikrupnik <krupnik.yuri@gmail.com>",
   "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-babel#readme",
   "license": "ISC",
-  "main": "generators/app/index.cjs.js",
-  "module": "generators/app/index.esm.js",
+  "main": "generators/app/index.js",
   "files": [
-    "dist"
+    "generators"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yurikrupnik/generators.git"
   },
   "scripts": {
+    "start": "rollup -c=../../rollup.config.js -w",
     "lint": "eslint src",
     "test": "jest --runInBand",
     "build": "rollup -c=../../rollup.config.js"

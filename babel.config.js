@@ -1,4 +1,4 @@
-module.exports = function (api) {
+module.exports = (api) => {
     api.cache(true);
     const presets = [
         ['@babel/preset-env', {
@@ -7,15 +7,9 @@ module.exports = function (api) {
                 node: 'current'
             },
             modules: false,
-            // loose: true
-        }],
-        // ['@babel/preset-react']
+        }]
     ];
-    const plugins = [
-        // '@babel/plugin-syntax-object-rest-spread',
-        // '@babel/plugin-syntax-dynamic-import',
-        // 'react-loadable/babel'
-    ];
+    const plugins = [];
 
     return {
         babelrcRoots: [

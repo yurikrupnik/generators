@@ -15,6 +15,7 @@
     "url": "git+https://github.com/yurikrupnik/generators.git"
   },
   "scripts": {
+    "start": "rollup -c=../../rollup.config.js -w",
     "lint": "eslint src",
     "test": "jest --runInBand",
     "build": "rollup -c=../../rollup.config.js"

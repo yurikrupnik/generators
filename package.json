@@ -72,6 +72,12 @@
       "templates"
     ]
   },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "always",
+    "printWidth": 100,
+    "tabWidth": 4
+  },
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint",

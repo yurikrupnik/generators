@@ -1,14 +1,17 @@
 {
-  "name": "generator-node-puzzle-babel",
-  "version": "1.0.3",
-  "description": "Generator for babel files and packages",
+  "name": "generator-node-puzzle-package",
+  "version": "1.0.0",
+  "description": "> TODO: description",
   "author": "yurikrupnik <krupnik.yuri@gmail.com>",
-  "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-babel#readme",
+  "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-package#readme",
   "license": "ISC",
   "main": "generators/app/index.js",
   "files": [
     "generators"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yurikrupnik/generators.git"

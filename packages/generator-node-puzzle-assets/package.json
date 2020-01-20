@@ -24,7 +24,10 @@
     "start": "rollup -c=../../rollup.config.js -w",
     "lint": "eslint src",
     "test": "jest --runInBand",
-    "build": "rollup -c=../../rollup.config.js"
+    "prebuild": "rimraf generators",
+    "build": "rollup -c=../../rollup.config.js",
+    "link": "npm link",
+    "unlink": "npm unlink"
   },
   "bugs": {
     "url": "https://github.com/yurikrupnik/generators/issues"

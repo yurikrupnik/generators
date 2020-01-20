@@ -3,6 +3,12 @@ import Base from 'yeoman-generator';
 class BabelGenerator extends Base {
     constructor(args, opts) {
         super(args, opts);
+        this.option('file', {
+            type: String,
+            required: false,
+            desc: 'destination root',
+            default: 'babel.config.js'
+        });
 
         this.option('destination', {
             type: String,
@@ -21,14 +27,15 @@ class BabelGenerator extends Base {
 
     _installDevPackages() {
         const { react } = this.options;
-        this.npmInstall([
-            '@babel/core',
-            '@babel/plugin-syntax-object-rest-spread',
-            '@babel/plugin-syntax-dynamic-import',
-            '@babel/preset-env'
-        ].concat(react ? [
-            '@babel/preset-react'
-        ] : []), { 'save-dev': true });
+        this.npmInstall(
+            [
+                '@babel/core',
+                '@babel/plugin-syntax-object-rest-spread',
+                '@babel/plugin-syntax-dynamic-import',
+                '@babel/preset-env'
+            ].concat(react ? ['@babel/preset-react'] : []),
+            { 'save-dev': true }
+        );
     }
 
     writing() {

@@ -2,6 +2,50 @@ version: 2.1
 orbs:
   codecov: codecov/codecov@1.0.4
 
+aliases:
+  - &docker
+    - image: circleci/node:12
+  - &update-npm
+    run:
+      name: update-npm
+      command: sudo npm install -g npm@6
+  - &restore_cache
+    keys:
+      - v1-node-{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
+      - v1-node-{{ arch }}-{{ .Branch }}-
+      - v1-node-{{ arch }}-
+  - &install_sub_packages
+    run:
+      name: Install sub packages
+      command: npm run pi
+  - &docker_login
+    run:
+      name: docker login
+      command: docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASS
+
+commands:
+  lint:
+    description: 'Run eslint with since parameter'
+    parameters:
+      since:
+        type: string
+        default: ''
+    steps:
+      - run: npm run lint -- --<< parameters.since >>
+  handle_cache:
+    description: Restoring, installing and saving cache for npm.
+    steps:
+      - *update-npm
+      - restore_cache: *restore_cache
+      - run:
+          name: install-npm-wee
+          command: npm i
+      - save_cache:
+          name: Save node_modules cache
+          key: v1-node-{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+
 defaults: &defaults
   working_directory: ~/tmp
   docker:
@@ -15,45 +59,35 @@ defaults: &defaults
 #      ignore: /.*/
 
 jobs:
+#  build:
+#    <<: *defaults
+#    steps:
+#      - checkout
+#      - run:
+#          name: update-npm
+#          command: 'sudo npm install -g npm@5'
+#      - restore_cache:
+#          key: dependency-cache-{{ checksum "package.json" }}
+#      - run:
+#          name: install-npm-wee
+#          command: npm install
+#      - save_cache:
+#          key: dependency-cache-{{ checksum "package.json" }}
+#          paths:
+#            - ./node_modules
+#      - run:
+#          name: build
+#          command: npm run build
+#      - store_artifacts:
+#          path: dist/bundles-report/index.html
+#          prefix: bundle-report-html
+
   build:
     <<: *defaults
     steps:
       - checkout
-      - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@5'
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: install-npm-wee
-          command: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
-      - run:
-          name: build
-          command: npm run build
-      - store_artifacts:
-          path: dist/bundles-report/index.html
-          prefix: bundle-report-html
-
-  test:
-    <<: *defaults
-    steps:
-      - checkout
-      - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@5'
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: install-npm-wee
-          command: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
+      - handle_cache
+      - lint
       - run:
           name: test
           command: npm run test -- --coverage
@@ -97,7 +131,7 @@ workflows:
   test_all:
     jobs:
       - build
-      - test
+#      - test
 #      - deploy_to_npm:
 #          <<: *only-deploy-tags
 #          requires:

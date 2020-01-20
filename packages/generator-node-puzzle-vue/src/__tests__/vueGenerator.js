@@ -19,24 +19,24 @@ describe('vue generator', () => {
                     assert.fileContent('src/index.js', 'vue');
                 });
         });
-        test('vue sass exits', function () {
-            return helpers.run(path.join(__dirname, '../index.js'))
-                .withOptions({
-                    sass: true
-                })
-                .then(function() {
-                    assert.file('src/index.js');
-                });
-        });
-        test('vue sass does not exits', function () {
-            return helpers.run(path.join(__dirname, '../index.js'))
-                .withOptions({
-                    sass: false
-                })
-                .then(function() {
-                    assert.file('src/index.js');
-                });
-        });
+        // test('vue sass exits', function () {
+        //     return helpers.run(path.join(__dirname, '../index.js'))
+        //         .withOptions({
+        //             sass: true
+        //         })
+        //         .then(function() {
+        //             assert.file('src/index.js');
+        //         });
+        // });
+        // test('vue sass does not exits', function () {
+        //     return helpers.run(path.join(__dirname, '../index.js'))
+        //         .withOptions({
+        //             sass: false
+        //         })
+        //         .then(function() {
+        //             assert.file('src/index.js');
+        //         });
+        // });
 
     });
 });

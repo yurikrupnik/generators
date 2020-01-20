@@ -1,9 +1,9 @@
-const Generator = require('yeoman-generator/lib');
+import Generator from 'yeoman-generator';
 import path from 'path';
 // const basename = require('path').basename;
 // var mkdirp = require('mkdirp');
 
-module.exports = class App extends Generator {
+class MonorepoGenerator extends Generator {
     constructor(args, opts) {
         super(args, opts);
 
@@ -141,4 +141,6 @@ module.exports = class App extends Generator {
     end() {
 
     }
-};
+}
+
+export default MonorepoGenerator;

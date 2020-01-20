@@ -41,15 +41,22 @@ class ReactComponentGenerator extends Generator {
     }
 
     writing() {
+        this.config.set({
+            location: 'src/ass'
+        });
         const { path, name } = this.options;
         const destination = Path.join(path, name);
+        const config = this.config.getAll();
+        console.log('config', config);
         this.fs.copyTpl(
             this.templatePath(),
             this.destinationPath(destination),
-            {
-                name
-            },
+            { name },
         );
+    }
+
+    end() {
+        console.log(`end of react component generator`);
     }
 }
 

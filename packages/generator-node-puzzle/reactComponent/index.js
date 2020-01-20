@@ -4,10 +4,20 @@ import path from 'path';
 // const basename = require('path').basename;
 // var mkdirp = require('mkdirp');
 
-class AppGenerator extends Generator {
-    // constructor(args, opts) {
-    //     super(args, opts);
-    // }
+class AppGenerator extends Component {
+    constructor(args, opts) {
+        super(args, opts);
+
+        // console.log('args', args);
+        // console.log('opts', opts);
+
+        this.composeWith({
+            Generator: Component,
+            path: require.resolve('generator-node-puzzle-react-component')
+        }, {
+            arguments: args
+        });
+    }
     //
     // async _buildCodeSrcFolder() {
     //     const { codeSrc } = this.options;
@@ -32,7 +42,7 @@ class AppGenerator extends Generator {
     //     //     path: `${codeSrc}/assets`
     //     // });
     //
-    //     // this.composeWith(require.resolve('../jest/AppGenerator'));
+        // this.composeWith(require.resolve('../jest/AppGenerator'));
     //     // this.composeWith(require.resolve('../eslint/AppGenerator'));
     //     // this.composeWith(require.resolve('../webpack/AppGenerator'));
     //     //
@@ -98,9 +108,9 @@ class AppGenerator extends Generator {
     //     // this._createPackage();
     // }
     //
-    // end() {
-    //     console.log(`end of ${AppGenerator.name} generator`);
-    // }
+    end() {
+        console.log(`end of ${AppGenerator.name} generator`);
+    }
 }
 
 export default AppGenerator;

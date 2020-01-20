@@ -1,9 +1,9 @@
 {
-  "name": "generator-node-puzzle-react-component",
+  "name": "generator-node-puzzle-repo",
   "version": "1.0.0",
-  "description": "React component",
+  "description": "> TODO: description",
   "author": "yurikrupnik <krupnik.yuri@gmail.com>",
-  "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-react-component#readme",
+  "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-repo#readme",
   "license": "ISC",
   "main": "generators/app/index.js",
   "files": [
@@ -23,6 +23,8 @@
     "url": "https://github.com/yurikrupnik/generators/issues"
   },
   "dependencies": {
+    "generator-license": "^5.4.0",
+    "mkdirp": "^0.5.1",
     "yeoman-generator": "^4.0.0"
   },
   "devDependencies": {
@@ -30,14 +32,6 @@
     "yeoman-test": "^2.0.0"
   },
   "keywords": [
-    "node",
-    "module",
-    "scaffold",
-    "cli",
-    "yeoman-generator",
-    "babel",
-    ".babelrc",
-    "transpiler",
-    "esm"
+    "yeoman-generator"
   ]
 }

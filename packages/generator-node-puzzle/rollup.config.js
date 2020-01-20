@@ -4,7 +4,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import path from 'path';
 import autoExternal from 'rollup-plugin-auto-external';
 import copy from 'rollup-plugin-copy';
-import fs from 'fs';
+// import fs from 'fs';
 // import jsdoc from 'rollup-plugin-jsdoc';
 
 const cwd = process.cwd();
@@ -35,29 +35,47 @@ const plugins = [
 ];
 
 
-fs.readdirSync(path.resolve(cwd, 'src'));
+// const filters = ['node_nodules', 'generators'];
+//
+// const inputs = [];
 
+// fs.readdirSync(path.resolve(cwd), (error, files) => {
+//     if (error) {
+//         console.log(error);
+//     } else {
+//         console.log('files', files);
+//         files.forEach((file) => {
+//             const isDirectory = fs.lstatSync(path.resolve(cwd, file)).isDirectory();
+//             console.log('isDirectory', isDirectory);
+//
+//             if (isDirectory) {
+//                 inputs.push('ok');
+//             }
+//         });
+//
+//         // console.log(typeof file);
+//         // console.log(Array.isArray(file));
+//
+//         // console.log(file);
+//         // console.log(isDirectory.isDirectory());
+//     }
+// });
+
+// console.log('inputs', inputs);
 export default [
     {
         input,
         output: [
             {
-                // file: path.join(cwd, 'generators/app', 'index.js'),
                 dir: 'generators/app',
                 format: 'cjs'
-            },
-            // {
-            //     // file: path.join(cwd, 'generators/app', 'index.js'),
-            //     dir: 'generators/reactComponent',
-            //     format: 'cjs'
-            // }
+            }
         ],
         plugins
     },
     {
         input: path.join(cwd, 'reactComponent/index.js'),
         output: {
-            // file: path.join(cwd, 'generators/app', 'index.js'),
             dir: 'generators/reactComponent',
             format: 'cjs'
         },

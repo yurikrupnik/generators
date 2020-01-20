@@ -29,7 +29,7 @@ describe('Eslint generator', () => {
             assert.file('.eslintrc');
             assert.fileContent('.eslintrc', 'airbnb');
             assert.fileContent('.eslintrc', 'jest');
-        }), 100000);
+        }), 10000);
 
     test('use generator configs and plugins options handle errors', async () => helpers
         .run(path.join(__dirname, '../index.js'))
@@ -42,5 +42,5 @@ describe('Eslint generator', () => {
             assert.fileContent('.eslintrc', 'airbnb');
             assert.noFileContent('.eslintrc', 'none');
             assert.fileContent('.eslintrc', 'jest');
-        }), 100000);
+        }), 10000);
 });

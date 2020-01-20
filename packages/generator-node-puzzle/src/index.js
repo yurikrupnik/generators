@@ -1,5 +1,7 @@
 import Generator from 'yeoman-generator';
+import License from 'generator-license';
 import path from 'path';
+import mkdirp from 'mkdirp';
 // const basename = require('path').basename;
 // var mkdirp = require('mkdirp');
 
@@ -47,15 +49,50 @@ class AppGenerator extends Generator {
             desc: 'Project name to be included in the package.json',
             default: path.basename(process.cwd())
         });
+
+        this.option('license', {
+            type: String,
+            required: false,
+            desc: 'Override default MIT license',
+            default: 'MIT'
+        });
+    }
+    initializing() {
+        // console.log('this.user.git', this.user.git);
+        // this.git = {
+        //     user: {
+        //         name: this.user.git.name(),
+        //         email: this.user.git.email()
+        //     }
+        // };
+
+
+        // console.log(this.user.git.name());
+        // const a = await this.user.github.username();
+        // console.log('a', a);
+        // console.log(this.git.user.name);
+        // console.log('type', this.options.type);
+        // console.log('thus', this.option('name'));
+        this.composeWith({
+            Generator: License,
+            path: require.resolve('generator-license')
+        }, {
+            // defaultLicense: this.options.license,
+            license: this.options.license,
+            name: this.user.git.name(),
+            email: this.user.git.email()
+        });
+        // console.log('s', s);
+        // this.composeWith(require.resolve('generator-license'));
     }
 
     async _buildCodeSrcFolder() {
         const { codeSrc } = this.options;
-        // mkdirp(codeSrc, (error) => {
-        //     if (error) {
-        //         console.log('error', error);
-        //     }
-        // });*
+        mkdirp(codeSrc, (error) => {
+            if (error) {
+                console.log('error', error);
+            }
+        });
     }
 
     async prompting() {
@@ -64,7 +101,7 @@ class AppGenerator extends Generator {
         // const { options } = this;
         // const { codeSrc } = options;
 
-        this.composeWith(require.resolve('generator-license'));
+        // this.composeWith(require.resolve('generator-license'));
         this.props = await this.prompt(this.getQuestions());
 
         // this.composeWith(require.resolve('../babel/AppGenerator'));
@@ -94,7 +131,7 @@ class AppGenerator extends Generator {
 
     configuring() {
         this.config.set({
-            yes: true
+            // yes: true
         });
     }
 

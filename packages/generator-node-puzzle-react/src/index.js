@@ -15,7 +15,7 @@ class ReactGenerator extends Base {
 
         this.argument('appname', {
             type: String,
-            required: false
+            required: true
         });
 
         this.option('css', {
@@ -61,7 +61,7 @@ class ReactGenerator extends Base {
 
     _installPackages() {
         this.npmInstall([
-            'angular',
+            'react',
             'prop-types',
             'react-dom',
             'react-router',

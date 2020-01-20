@@ -85,7 +85,12 @@ class ClientGenerator extends Generator {
                 Generator: ReactGenerator,
                 path: require.resolve('generator-node-puzzle-react')
             }, {
-                appname: 'cs'
+                // args: ['lolaa'],
+                arguments: ['ima'],
+                // appname: ['ima'],
+                appname: 'lol',
+                // argumentappname: 'cs',
+                ass: 'uess'
             });
         } else if (props.viewEngine === 'vue') {
             this.composeWith({

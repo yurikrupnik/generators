@@ -10,9 +10,9 @@ const {
     test
 } = global;
 
-describe('monorepo generator', () => {
-    describe('monorepo config file', () => {
-        test('monorepo defaults', function () {
+describe('react generator', () => {
+    describe('react config file', () => {
+        test('react app defaults', function () {
             return helpers.run(path.join(__dirname, '../index.js'))
                 .withOptions({
 

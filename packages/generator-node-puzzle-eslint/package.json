@@ -5,10 +5,9 @@
   "author": "yurikrupnik <krupnik.yuri@gmail.com>",
   "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-eslint#readme",
   "license": "ISC",
-  "main": "app/index.cjs.js",
-  "module": "app/index.esm.js",
+  "main": "generators/app/index.js",
   "files": [
-    "app"
+    "generators"
   ],
   "repository": {
     "type": "git",

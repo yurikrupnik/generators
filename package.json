@@ -10,7 +10,6 @@
     "stop": "lerna exec --stream -- npm unlink",
     "build": "lerna run --parallel build",
     "pi": "lerna exec --parallel -- npm i",
-
     "pretests": "npm run lint",
     "test": "jest",
     "prebuilda": "lerna exec -- rimraf app && npm run test",

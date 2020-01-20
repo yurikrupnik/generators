@@ -1,5 +1,7 @@
 import Generator from 'yeoman-generator';
 import ReactGenerator from 'generator-node-puzzle-react';
+import VueGenerator from 'generator-node-puzzle-vue';
+import AngularGenerator from 'generator-node-puzzle-angular';
 // var path = require('path');
 // var webpack = require('../webpack/app');
 // var G = require('generator-webpack-mussia');
@@ -79,32 +81,28 @@ class ClientGenerator extends Generator {
         const { props } = this;
         const { sass } = props;
         if (props.viewEngine === 'react') {
-            console.log('react');
             this.composeWith({
                 Generator: ReactGenerator,
                 path: require.resolve('generator-node-puzzle-react')
             }, {
                 appname: 'cs'
-                // arguments: []
-            }, {
-                shit:'as'
             });
-            // this.composeWith('generators-node-puzzle-react/generators:app', {
-            //     sass,
-            //     // srr: true
-            // });
-        } else {
-            console.log('no react');
+        } else if (props.viewEngine === 'vue') {
+            this.composeWith({
+                Generator: VueGenerator,
+                path: require.resolve('generator-node-puzzle-vue')
+            }, {
+                sass
+            });
+        } else if (props.viewEngine === 'angular') {
+            this.composeWith({
+                Generator: AngularGenerator,
+                path: require.resolve('generator-node-puzzle-angular')
+            }, {
+                sass
+                // arguments: []
+            });
         }
-        // else if (props.viewEngine === 'vue') {
-        //     this.composeWith(require.resolve('../vue/generators/app'), {
-        //         sass
-        //     });
-        // } else if (props.viewEngine === 'angular') {
-        //     this.composeWith(require.resolve('../angular/generators/app'), {
-        //         sass
-        //     });
-        // }
     }
 
     _handleClientWebpackPackages() {

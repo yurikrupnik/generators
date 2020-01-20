@@ -1,9 +1,9 @@
 {
-  "name": "generator-node-puzzle-jest",
-  "version": "1.0.3",
-  "description": "Generator for jest test runner",
+  "name": "generator-node-puzzle-angular",
+  "version": "1.0.0",
+  "description": "> TODO: description",
   "author": "yurikrupnik <krupnik.yuri@gmail.com>",
-  "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-jest#readme",
+  "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-angular#readme",
   "license": "ISC",
   "main": "generators/app/index.js",
   "files": [
@@ -17,6 +17,7 @@
     "start": "rollup -c=../../rollup.config.js -w",
     "lint": "eslint src",
     "test": "jest --runInBand",
+    "prebuild": "rimraf generators",
     "build": "rollup -c=../../rollup.config.js"
   },
   "bugs": {

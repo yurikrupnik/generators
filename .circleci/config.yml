@@ -3,8 +3,6 @@ orbs:
   codecov: codecov/codecov@1.0.4
 
 aliases:
-  - &docker
-    - image: circleci/node:12
   - &update-npm
     run:
       name: update-npm
@@ -18,10 +16,6 @@ aliases:
     run:
       name: Install sub packages
       command: npm run pi
-  - &docker_login
-    run:
-      name: docker login
-      command: docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASS
 
 commands:
   lint:
@@ -49,73 +43,47 @@ commands:
 defaults: &defaults
   working_directory: ~/tmp
   docker:
-    - image: circleci/node:11
-
-#only-deploy-tags: &only-deploy-tags
-#  filters:
-#    tags:
-#      only: /^v.*/
-#    branches:
-#      ignore: /.*/
+    - image: circleci/node:12
 
 jobs:
-#  build:
-#    <<: *defaults
-#    steps:
-#      - checkout
-#      - run:
-#          name: update-npm
-#          command: 'sudo npm install -g npm@5'
-#      - restore_cache:
-#          key: dependency-cache-{{ checksum "package.json" }}
-#      - run:
-#          name: install-npm-wee
-#          command: npm install
-#      - save_cache:
-#          key: dependency-cache-{{ checksum "package.json" }}
-#          paths:
-#            - ./node_modules
-#      - run:
-#          name: build
-#          command: npm run build
-#      - store_artifacts:
-#          path: dist/bundles-report/index.html
-#          prefix: bundle-report-html
 
   build:
     <<: *defaults
     steps:
       - checkout
       - handle_cache
+      - *install_sub_packages
       - lint
       - run:
           name: test
-          command: npm run test -- --coverage
-#      - run:
-#          name: test e2e
-#          command: npm run test:e2e
+          command: npm run test
+      - run:
+          name: build
+          command: npm run build
       - codecov/upload
-      - store_artifacts:
-          path: coverage
-      - store_test_results:
-          path: coverage/lcov-report
 
-  deploy_to_npm:
+  since-build:
+    executor: development
+    steps:
+      - checkout
+      - handle_cache
+      - run:
+          name: pi since
+          command: npx lerna exec --parallel --since -- npm i
+      - lint:
+          since: since
+      - run:
+          name: test since
+          command: npx lerna exec --parallel --since -- npm run test -- -i
+      - run:
+          name: build since
+          command: npx lerna run build --parallel --since
+
+  publish_npm:
     <<: *defaults
     steps:
       - checkout
-      - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@5'
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: install-npm-wee
-          command: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
+      - handle_cache
       - run:
           name: build
           command: npm run build
@@ -124,13 +92,24 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/.npmrc
       - run:
           name: Publish package
-          command: npm publish
+          command: npm run npm-publish
 
 workflows:
   version: 2
-  test_all:
+  build:
     jobs:
-      - build
+      - build:
+        filters:
+          branches:
+            only: master
+      - since-build:
+          filters:
+            branches:
+              ignore: master
+      - publish_npm:
+          filters:
+            branches:
+              only: master
 #      - test
 #      - deploy_to_npm:
 #          <<: *only-deploy-tags

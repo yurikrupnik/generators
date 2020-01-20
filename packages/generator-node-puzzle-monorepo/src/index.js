@@ -12,20 +12,20 @@ class MonorepoGenerator extends Generator {
         // console.log('constocutor opts name',  opts.name);
 
 
-        this.types = [
-            {
-                value: 'fullstack',
-                name: 'Fullstack'
-            },
-            {
-                value: 'client',
-                name: 'Client'
-            },
-            {
-                value: 'server',
-                name: 'Server'
-            }
-        ];
+        // this.types = [
+        //     {
+        //         value: 'fullstack',
+        //         name: 'Fullstack'
+        //     },
+        //     {
+        //         value: 'client',
+        //         name: 'Client'
+        //     },
+        //     {
+        //         value: 'server',
+        //         name: 'Server'
+        //     }
+        // ];
 
         this.option('codeSrc', {
             type: String,

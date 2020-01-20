@@ -63,7 +63,7 @@ jobs:
       - codecov/upload
 
   since-build:
-    executor: development
+    <<: *defaults
     steps:
       - checkout
       - handle_cache

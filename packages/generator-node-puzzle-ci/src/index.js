@@ -3,7 +3,7 @@ import path from 'path';
 // const basename = require('path').basename;
 // var mkdirp = require('mkdirp');
 
-class AppGenerator extends Generator {
+class CiGenerator extends Generator {
     constructor(args, opts) {
         super(args, opts);
 
@@ -47,6 +47,11 @@ class AppGenerator extends Generator {
             desc: 'Project name to be included in the package.json',
             default: path.basename(process.cwd())
         });
+    }
+
+
+    initializing() {
+        // console.log('initializing', initializing);
     }
 
     async _buildCodeSrcFolder() {
@@ -94,7 +99,7 @@ class AppGenerator extends Generator {
 
     configuring() {
         this.config.set({
-            yes: true
+            // yes: true
         });
     }
 
@@ -139,8 +144,8 @@ class AppGenerator extends Generator {
     }
 
     end() {
-        console.log(`end of ${AppGenerator.name} generator`);
+        console.log('end of AppGenerator generator');
     }
 }
 
-export default AppGenerator;
+export default CiGenerator;

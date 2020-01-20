@@ -28,7 +28,7 @@ class ReactComponentGenerator extends Generator {
         this.option('path', {
             type: String,
             required: false,
-            desc: 'Destination path of a component',
+            desc: 'Destination path of a reactComponent',
             default: ''
         });
 

@@ -1,9 +1,9 @@
 {
-  "name": "generator-node-puzzle",
+  "name": "generator-node-puzzle-ci",
   "version": "1.0.0",
-  "description": "Combining other small node-puzzle generators",
+  "description": "> TODO: description",
   "author": "yurikrupnik <krupnik.yuri@gmail.com>",
-  "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle#readme",
+  "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-ci#readme",
   "license": "ISC",
   "main": "generators/app/index.js",
   "files": [
@@ -14,17 +14,15 @@
     "url": "git+https://github.com/yurikrupnik/generators.git"
   },
   "scripts": {
-    "start": "rollup -c=rollup.config.js -w",
+    "start": "rollup -c=../../rollup.config.js -w",
     "lint": "eslint src",
     "test": "jest --runInBand",
-    "build": "rollup -c=rollup.config.js"
+    "build": "rollup -c=../../rollup.config.js"
   },
   "bugs": {
     "url": "https://github.com/yurikrupnik/generators/issues"
   },
   "dependencies": {
-    "generator-license": "^5.4.0",
-    "generator-node-puzzle-react-component": "^1.0.0",
     "yeoman-generator": "^4.0.0"
   },
   "devDependencies": {
@@ -32,6 +30,14 @@
     "yeoman-test": "^2.0.0"
   },
   "keywords": [
-    "yeoman-generator"
+    "node",
+    "module",
+    "scaffold",
+    "cli",
+    "yeoman-generator",
+    "babel",
+    ".babelrc",
+    "transpiler",
+    "esm"
   ]
 }

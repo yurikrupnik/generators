@@ -10,7 +10,7 @@ const {
     test
 } = global;
 
-describe('react component generator', () => {
+describe('react reactComponent generator', () => {
     describe('copy files', () => {
         test('react client defaults', function () {
             return helpers.run(path.join(__dirname, '../index.js'))

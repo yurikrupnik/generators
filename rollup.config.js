@@ -10,7 +10,7 @@ const input = path.join(name, 'src/index.js');
 const fileName = 'index.js';
 const plugins = [
     babel({
-        rootMode: 'upward',
+        rootMode: 'upward'
     }),
     resolve({}),
     commonjs({

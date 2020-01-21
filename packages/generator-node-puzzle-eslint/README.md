@@ -9,9 +9,11 @@
 generator-node-puzzle-eslint creates .eslintrc and .eslintignore files with packages.
 
 ## Install
+
 ```
 npm install --global generator-node-puzzle-eslint
 ```
+
 ## Usage
 
 ```
@@ -19,6 +21,7 @@ yo node-puzzle-eslint
 ```
 
 ## Extending generator
+
 ```
 this.composeWith(require.resolve('generator-node-puzzle-eslint'), {
   /* options */
@@ -26,4 +29,5 @@ this.composeWith(require.resolve('generator-node-puzzle-eslint'), {
 ```
 
 ## Options
+
 - destination (String, default '') destination path for .babelrc file.

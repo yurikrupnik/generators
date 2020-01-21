@@ -6,6 +6,7 @@
   "rules": {
     "indent": [2, 4],
     "comma-dangle": 0,
+    "implicit-arrow-linebreak": 0,
     "no-underscore-dangle": 1 <% if(personal) { %>,
     "react/jsx-indent": [2, 4], // personal
     "react/jsx-indent-props": 0, // personal

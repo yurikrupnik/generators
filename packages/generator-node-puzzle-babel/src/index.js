@@ -21,14 +21,15 @@ class BabelGenerator extends Base {
 
     _installDevPackages() {
         const { react } = this.options;
-        this.npmInstall([
-            '@babel/core',
-            '@babel/plugin-syntax-object-rest-spread',
-            '@babel/plugin-syntax-dynamic-import',
-            '@babel/preset-env'
-        ].concat(react ? [
-            '@babel/preset-react'
-        ] : []), { 'save-dev': true });
+        this.npmInstall(
+            [
+                '@babel/core',
+                '@babel/plugin-syntax-object-rest-spread',
+                '@babel/plugin-syntax-dynamic-import',
+                '@babel/preset-env'
+            ].concat(react ? ['@babel/preset-react'] : []),
+            { 'save-dev': true }
+        );
     }
 
     writing() {
@@ -45,4 +46,4 @@ class BabelGenerator extends Base {
     }
 }
 
-module.exports = BabelGenerator;
+export default BabelGenerator;

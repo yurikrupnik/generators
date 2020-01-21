@@ -43,23 +43,18 @@ class JestGenerator extends Base {
         const { e2ePath, e2e } = this.options;
 
         if (e2e) {
-            this.fs.copyTpl(
-                this.templatePath('e2e'),
-                this.destinationPath(e2ePath)
-            );
+            this.fs.copyTpl(this.templatePath('e2e'), this.destinationPath(e2ePath));
         }
     }
 
     installDevPackages() {
         const { css, e2e } = this.options;
-        this.npmInstall([
-            'jest',
-        ].concat(css ? 'identity-obj-proxy' : ''), { 'save-dev': true });
+        this.npmInstall(['jest'].concat(css ? 'identity-obj-proxy' : ''), {
+            'save-dev': true
+        });
 
         if (e2e) {
-            this.npmInstall([
-                'puppeteer',
-            ], { 'save-dev': true });
+            this.npmInstall(['puppeteer'], { 'save-dev': true });
         }
     }
 
@@ -72,43 +67,33 @@ class JestGenerator extends Base {
     }
 
     updatePackageJson() {
-        this.fs.extendJSON(
-            this.destinationPath('package.json'),
-            {
-                scripts: this.handleScriptsPkg(),
-                jest: this.handleJestPkg(),
-            }
-        );
+        this.fs.extendJSON(this.destinationPath('package.json'), {
+            scripts: this.handleScriptsPkg(),
+            jest: this.handleJestPkg()
+        });
     }
 
     handleScriptsPkg() {
-        const {
-            destinationPath, e2ePath, e2e
-        } = this.options;
+        const { destinationPath, e2ePath, e2e } = this.options;
         const scripts = {
             test: `jest ${destinationPath}`,
             'test:watch': `jest ${destinationPath} --watch`,
-            'test:coverage': `jest ${destinationPath} --coverage`,
+            'test:coverage': `jest ${destinationPath} --coverage`
         };
 
         const e2eScripts = {
-            'test:e2e': `jest ${e2ePath}/`,
+            'test:e2e': `jest ${e2ePath}/`
         };
 
-        return Object.assign({}, scripts, e2e ? e2eScripts : {});
+        return Object.assign({}, scripts, e2e ? e2eScripts : {}); // eslint-disable-line
     }
 
     handleJestPkg() {
-        const {
-            css,
-            testEnvironment
-        } = this.options;
+        const { css, testEnvironment } = this.options;
 
         const jestConfig = {
             testEnvironment,
-            modulePathIgnorePatterns: [
-                '<rootDir>/.*/__mocks__'
-            ]
+            modulePathIgnorePatterns: ['<rootDir>/.*/__mocks__']
         };
 
         if (css) {

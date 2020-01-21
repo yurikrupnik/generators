@@ -4,19 +4,28 @@ import path from 'path';
 // const basename = require('path').basename;
 // var mkdirp = require('mkdirp');
 
-class AppGenerator extends Component {
+class ComponentGenerator extends Generator {
     constructor(args, opts) {
         super(args, opts);
 
         // console.log('args', args);
         // console.log('opts', opts);
 
-        this.composeWith({
-            Generator: Component,
-            path: require.resolve('generator-node-puzzle-react-component')
-        }, {
-            arguments: args
-        });
+        // this.option('shit', {
+        //     type: String,
+        //     default: ''
+        // });
+
+        this.composeWith(
+            {
+                Generator: Component,
+                path: require.resolve('generator-node-puzzle-react-component')
+            },
+            {
+                // ...opts,
+                arguments: args
+            }
+        );
     }
     //
     // async _buildCodeSrcFolder() {
@@ -28,6 +37,7 @@ class AppGenerator extends Component {
     //     // });*
     // }
     //
+
     // async prompting() {
     //     // await this._buildCodeSrcFolder();
     //     // const { projectType } = this.props;
@@ -42,7 +52,7 @@ class AppGenerator extends Component {
     //     //     path: `${codeSrc}/assets`
     //     // });
     //
-        // this.composeWith(require.resolve('../jest/AppGenerator'));
+    // this.composeWith(require.resolve('../jest/AppGenerator'));
     //     // this.composeWith(require.resolve('../eslint/AppGenerator'));
     //     // this.composeWith(require.resolve('../webpack/AppGenerator'));
     //     //
@@ -109,8 +119,8 @@ class AppGenerator extends Component {
     // }
     //
     end() {
-        console.log(`end of ${AppGenerator.name} generator`);
+        console.log(`end of ${ComponentGenerator.name} generator`);
     }
 }
 
-export default AppGenerator;
+export default ComponentGenerator;

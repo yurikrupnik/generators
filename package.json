@@ -6,12 +6,12 @@
     "prestart": "lerna bootstrap",
     "start": "lerna run --parallel start",
     "poststart": "lerna exec --stream -- npm link",
-    "lint": "lerna run --parallel link",
+    "lint": "lerna run --parallel lint",
     "stop": "lerna exec --stream -- npm unlink",
     "build": "lerna run --parallel build",
     "pi": "lerna exec --parallel -- npm i",
     "pretests": "npm run lint",
-    "test": "jest",
+    "test": "lerna run --parallel test",
     "prebuilda": "lerna exec -- rimraf app && npm run test",
     "prewatcha": "npm run prebuild",
     "builda": "lerna exec -- rollup -c=../../rollup.config.js",
@@ -38,6 +38,7 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "copy-webpack-plugin": "^5.0.3",
     "coveralls": "^3.0.3",
     "docdash": "^1.1.1",
@@ -77,11 +78,5 @@
     "arrowParens": "always",
     "printWidth": 100,
     "tabWidth": 4
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "post-checkout": "npm run pi"
-    }
   }
 }

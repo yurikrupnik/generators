@@ -13,7 +13,7 @@ const input = path.join(cwd, 'src/index.js');
 
 const plugins = [
     babel({
-        rootMode: 'upward',
+        rootMode: 'upward'
     }),
     resolve({}),
     commonjs({
@@ -27,13 +27,12 @@ const plugins = [
                 dest: 'generators/app/'
             }
         ]
-    }),
+    })
     // jsdoc({
     //     args: ['-d', 'doc'],  // Command-line options passed to JSDoc, Note: use "config" to indicate configuration file, do not use "-c" or "--configure" in "args"
     //     config: path.resolve(process.cwd(), '../..', 'jsdoc.json'),  // Path to the configuration file for JSDoc. Default: jsdoc.json
     // })
 ];
-
 
 // const filters = ['node_nodules', 'generators'];
 //
@@ -74,9 +73,9 @@ export default [
         plugins
     },
     {
-        input: path.join(cwd, 'reactComponent/index.js'),
+        input: path.join(cwd, 'component/index.js'),
         output: {
-            dir: 'generators/reactComponent',
+            dir: 'generators/component',
             format: 'cjs'
         },
         plugins

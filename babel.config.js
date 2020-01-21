@@ -1,28 +1,30 @@
 module.exports = (api) => {
     api.cache(true);
     const presets = [
-        ['@babel/preset-env', {
-            // rootMode: 'upward',
-            targets: {
-                node: 'current'
-            },
-            modules: false,
-        }]
+        [
+            '@babel/preset-env',
+            {
+                targets: {
+                    node: 'current'
+                },
+                modules: false
+            }
+        ]
     ];
-    const plugins = [];
+    const plugins = [
+        'transform-runtime',
+        {
+            regenerator: true
+        }
+    ];
 
     return {
-        babelrcRoots: [
-            '.',
-            'packages/*'
-        ],
+        babelrcRoots: ['.', 'packages/**'],
         presets,
         plugins,
         env: {
             test: {
-                plugins: [
-                    '@babel/plugin-transform-modules-commonjs'
-                ]
+                plugins: ['transform-runtime', '@babel/plugin-transform-modules-commonjs']
             }
         }
     };

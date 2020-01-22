@@ -68,5 +68,11 @@
     "printWidth": 100,
     "arrowParens": "always",
     "tabWidth": 4
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run test"
+    }
   }
 }

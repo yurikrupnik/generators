@@ -30,4 +30,4 @@ this.composeWith(require.resolve('generator-node-puzzle-eslint'), {
 
 ## Options
 
-- destination (String, default '') destination path for .babelrc file.
+-   destination (String, default '') destination path for .babelrc file.

@@ -30,5 +30,5 @@ this.composeWith(require.resolve('generator-node-puzzle-babel'), {
 
 ## Options
 
-- destination (String, default '') destination path for .babelrc file.
-- react (Boolean, default false) include react support.
+-   destination (String, default '') destination path for .babelrc file.
+-   react (Boolean, default false) include react support.

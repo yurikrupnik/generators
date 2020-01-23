@@ -2,7 +2,7 @@
 // import ReactGenerator from 'generator-node-puzzle-react';
 // import VueGenerator from 'generator-node-puzzle-vue';
 // import AngularGenerator from 'generator-node-puzzle-angular';
-const Generator = require('yeoman-generator');
+const Base = require('yeoman-generator');
 const AngularGenerator = require('generator-node-puzzle-angular');
 const VueGenerator = require('generator-node-puzzle-vue');
 const ReactGenerator = require('generator-node-puzzle-react');
@@ -12,7 +12,7 @@ const ReactGenerator = require('generator-node-puzzle-react');
 // var reduce = require('lodash.reduce');
 // const utils = require('./utils');
 // const questions = require('./questions');
-module.exports = class ClientGenerator extends Generator {
+class ClientGenerator extends Base {
     constructor(args, opts) {
         super(args, opts);
 
@@ -154,6 +154,6 @@ module.exports = class ClientGenerator extends Generator {
     end() {
         this.log(`You have finished building ${ClientGenerator.name}.`);
     }
-};
+}
 
-// export default ClientGenerator;
+export default ClientGenerator;

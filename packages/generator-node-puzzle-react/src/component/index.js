@@ -7,7 +7,7 @@ import Base from 'yeoman-generator';
 // var reduce = require('lodash.reduce');
 // const utils = require('./utils');
 // const questions = require('./questions');
-class ReactGenerator extends Base {
+class ReactComponentGenerator extends Base {
     constructor(args, opts) {
         super(args, opts);
         // console.log('args', args);
@@ -40,41 +40,40 @@ class ReactGenerator extends Base {
         });
     }
 
-    configuring() {
-        this.config.set({
-            extentions: '.jsx',
-            sos: 'yes'
-        });
-    }
-
-    writing() {
-        // this.fs.extendJSON(this.destinationPath('package.json'), this._getDefaultPackage());
-        this.fs.extendJSON(this.destinationPath('package.json'), {
-            name: 'came-from-react'
-        });
-        this.fs.copyTpl(this.templatePath(), this.destinationPath('src'), this.options);
-    }
-
-    _installPackages() {
-        this.npmInstall(['react', 'prop-types', 'react-dom', 'react-router', 'react-router-dom']);
-    }
-
-    _installDevPackages() {
-        this.npmInstall(
-            [
-                '@babel/preset-react',
-                'eslint-plugin-jsx-a11y',
-                'eslint-plugin-react',
-                'react-testing-library'
-            ],
-            { 'save-dev': true }
-        );
-    }
-
-    install() {
-        this._installPackages();
-        // this._installDevPackages();
-    }
+    // configuring() {
+    //     this.config.set({
+    //         extentions: '.jsx',
+    //         sos: 'yes'
+    //     });
+    // }
+    //
+    // writing() {
+    //     // this.fs.extendJSON(this.destinationPath('package.json'), this._getDefaultPackage());
+    //     this.fs.extendJSON(this.destinationPath('package.json'), {
+    //         name: 'came-from-react'
+    //     });
+    //     this.fs.copyTpl(this.templatePath(), this.destinationPath('src'), this.options);
+    // }
+    //
+    // _installPackages() {
+    // }
+    //
+    // _installDevPackages() {
+    //     this.npmInstall(
+    //         [
+    //             '@babel/preset-react',
+    //             'eslint-plugin-jsx-a11y',
+    //             'eslint-plugin-react',
+    //             'react-testing-library'
+    //         ],
+    //         { 'save-dev': true }
+    //     );
+    // }
+    //
+    // install() {
+    //     this._installPackages();
+    //     // this._installDevPackages();
+    // }
 
     conflicts() {
         // todo test
@@ -141,8 +140,8 @@ class ReactGenerator extends Base {
     }
 
     end() {
-        this.log(`You have finished building ${ReactGenerator.name}.`);
+        this.log(`You have finished building ${ReactComponentGenerator.name}.`);
     }
 }
 
-export default ReactGenerator;
+export default ReactComponentGenerator;

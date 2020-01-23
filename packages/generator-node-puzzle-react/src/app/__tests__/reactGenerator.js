@@ -1,6 +1,6 @@
-const helpers = require('yeoman-test');
-// const assert = require('yeoman-assert');
-const path = require('path');
+import path from 'path';
+// import assert from 'yeoman-assert';
+import helpers from 'yeoman-test';
 // const util = require('util');
 // const fs = require('fs');
 // const fs = require('fs-extra');

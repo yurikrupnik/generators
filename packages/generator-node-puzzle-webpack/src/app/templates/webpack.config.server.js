@@ -32,13 +32,15 @@ module.exports = (env, argv) => {
             rules: [
                 {
                     test: /\.(js|jsx)$/, // todo
-                    use: ['babel-loader', 'eslint-loader'],
+                    use: ['babel-loader', 'eslint-loader']
                 },
-                { // todo
+                {
+                    // todo
                     test: /\.(css|scss)$/, // todo
                     use: [
                         'css-loader',
-                        {// todo
+                        {
+                            // todo
                             loader: 'sass-loader'
                         }
                     ]
@@ -59,18 +61,23 @@ module.exports = (env, argv) => {
                 'process.env.DEBUG': JSON.stringify(isDebug),
                 'process.env.PORT': JSON.stringify(process.env.PORT)
             }),
-            new GenerateJsonPlugin('package.json', Object.assign({}, json, {
-                main: filename,
-                scripts: {
-                    start: `node ${filename}`
-                },
-                devDependencies: {}
-            })),
-            argv.watch ? new NodemonPlugin({
-                script: path.resolve(__dirname, 'dist', filename),
-                watch: path.resolve(__dirname, 'dist', filename),
-                verbose: true
-            }) : () => {}
-        ],
+            new GenerateJsonPlugin(
+                'package.json',
+                Object.assign({}, json, {
+                    main: filename,
+                    scripts: {
+                        start: `node ${filename}`
+                    },
+                    devDependencies: {}
+                })
+            ),
+            argv.watch
+                ? new NodemonPlugin({
+                      script: path.resolve(__dirname, 'dist', filename),
+                      watch: path.resolve(__dirname, 'dist', filename),
+                      verbose: true
+                  })
+                : () => {}
+        ]
     };
 };

@@ -1,10 +1,10 @@
-// import assert from 'yeoman-assert';
-// import helpers from 'yeoman-test';
-// import path from 'path';
+import assert from 'yeoman-assert';
+import helpers from 'yeoman-test';
+import path from 'path';
 
-const helpers = require('yeoman-test');
-const assert = require('yeoman-assert');
-const path = require('path');
+// const helpers = require('yeoman-test');
+// const assert = require('yeoman-assert');
+// const path = require('path');
 
 const { describe, test } = global;
 

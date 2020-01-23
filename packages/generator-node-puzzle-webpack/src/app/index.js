@@ -1,7 +1,6 @@
-// import Generator from 'yeoman-generator';
-const Base = require('yeoman-generator');
+import Base from 'yeoman-generator';
 
-module.exports = class WebpackGenerator extends Base {
+class WebpackGenerator extends Base {
     constructor(args, opts) {
         super(args, opts);
 
@@ -52,6 +51,6 @@ module.exports = class WebpackGenerator extends Base {
     install() {
         this._installDevPackages();
     }
-};
+}
 
-// export default WebpackGenerator;
+export default WebpackGenerator;

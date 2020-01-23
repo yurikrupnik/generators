@@ -15,8 +15,8 @@
   },
   "scripts": {
     "start": "rollup -c=../../rollup.config.js -w",
-    "lint": "eslint src",
-    "test": "jest --runInBand",
+    "lint": "eslint src --color",
+    "test": "jest --runInBand --colors",
     "prebuild": "rimraf generators",
     "build": "rollup -c=../../rollup.config.js",
     "link": "npm link",

@@ -40,10 +40,10 @@ const config = [
         plugins
     },
     {
-        input: 'src/react/index.js',
+        input: 'src/component/index.js',
         output: {
             // file: path.join(cwd, 'generators/app', 'index.js'),
-            dir: 'generators/react',
+            dir: 'generators/component',
             format: 'cjs'
         },
         plugins

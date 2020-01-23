@@ -1,20 +1,20 @@
 language: node_js
 node_js:
-  - '8'
-  - '10'
+    - '8'
+    - '10'
 cache:
-  yarn: true
-  directories:
-    - "node_modules"
+    yarn: true
+    directories:
+        - 'node_modules'
 #before_install:
 #  - curl -o- -L https://yarnpkg.com/install.sh | bash -s
 #  - export PATH="$HOME/.yarn/bin:$PATH"
 before_script:
-  - npm i
+    - npm i
 script:
-  - npm run build
+    - npm run build
 before_deploy:
-  - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
+    - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
 #deploy:
 #  provider: script
 #  script: "yarn run lerna:publish"
@@ -23,7 +23,7 @@ before_deploy:
 #    node: "8"
 #    tags: true
 jobs:
-  include:
-    - stage: Produce Coverage
-      node_js: node
-      script: jest --coverage --coverageReporters=text-lcov | coveralls
+    include:
+        - stage: Produce Coverage
+          node_js: node
+          script: jest --coverage --coverageReporters=text-lcov | coveralls

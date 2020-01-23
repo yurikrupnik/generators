@@ -9,9 +9,11 @@
 generator-node-puzzle-babel creates .babelrc file with support for react plugins and installs the needed packages.
 
 ## Install
+
 ```
 npm install --global generator-node-puzzle-babel
 ```
+
 ## Usage
 
 ```
@@ -19,6 +21,7 @@ yo node-puzzle-babel
 ```
 
 ## Extending generator
+
 ```
 this.composeWith(require.resolve('generator-node-puzzle-babel'), {
   /* options */
@@ -26,5 +29,6 @@ this.composeWith(require.resolve('generator-node-puzzle-babel'), {
 ```
 
 ## Options
-- destination (String, default '') destination path for .babelrc file.
-- react (Boolean, default false) include react support.
+
+-   destination (String, default '') destination path for .babelrc file.
+-   react (Boolean, default false) include react support.

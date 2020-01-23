@@ -1,35 +1,33 @@
 import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
-import path from 'path';
 import autoExternal from 'rollup-plugin-auto-external';
+import copy from 'rollup-plugin-copy';
+import { terser } from 'rollup-plugin-terser';
 
-const name = process.cwd();
-const input = path.join(name, 'src/index.js');
-
-const fileName = 'index.js';
 const plugins = [
-    babel({
-        rootMode: 'upward',
-    }),
+    babel({}),
     resolve({}),
-    commonjs({
-        // exclude: /node_modules/
-    }),
-    autoExternal()
+    commonjs({}),
+    autoExternal(),
+    // terser(),
+    copy({
+        targets: [
+            {
+                src: 'src/app/templates',
+                dest: 'generators/app/'
+            }
+        ]
+    })
 ];
 
-export default {
-    input,
-    output: [
-        {
-            file: path.join(name, 'app', 'cmj', `${fileName}`),
-            format: 'cjs'
-        },
-        {
-            file: path.join(name, 'app', 'esm', `${fileName}`),
-            format: 'esm'
-        }
-    ],
+const config = {
+    input: 'src/app/index.js',
+    output: {
+        dir: 'generators/app',
+        format: 'cjs'
+    },
     plugins
 };
+
+export default config;

@@ -1,34 +1,25 @@
-module.exports = function (api) {
+module.exports = function(api) {
     api.cache(true);
     const presets = [
-        ['@babel/preset-env', {
-            // rootMode: 'upward',
-            targets: {
-                node: 'current'
-            },
-            modules: false,
-            // loose: true
-        }],
-        // ['@babel/preset-react']
+        [
+            '@babel/preset-env',
+            {
+                targets: {
+                    node: 'current'
+                },
+                modules: false
+            }
+        ]
     ];
-    const plugins = [
-        // '@babel/plugin-syntax-object-rest-spread',
-        // '@babel/plugin-syntax-dynamic-import',
-        // 'react-loadable/babel'
-    ];
+    const plugins = [];
 
     return {
-        babelrcRoots: [
-            '.',
-            'packages/*'
-        ],
+        babelrcRoots: ['.', 'packages/*'],
         presets,
         plugins,
         env: {
             test: {
-                plugins: [
-                    '@babel/plugin-transform-modules-commonjs'
-                ]
+                plugins: ['@babel/plugin-transform-modules-commonjs']
             }
         }
     };

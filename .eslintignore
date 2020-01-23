@@ -62,8 +62,3 @@ typings/
 # next.js build output
 .next
 
-packages/generator-node-puzzle-webpack/app/templates/index.ejs
-packages/generator-node-puzzle-webpack/app/templates/webpack.config.client.js
-packages/generator-node-puzzle-webpack/app/templates/webpack.config.server.js
-packages/generator-node-puzzle-webpack/app/templates/config.js
-dist

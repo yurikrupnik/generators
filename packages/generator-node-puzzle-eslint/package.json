@@ -5,19 +5,22 @@
   "author": "yurikrupnik <krupnik.yuri@gmail.com>",
   "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-eslint#readme",
   "license": "ISC",
-  "main": "app/cmj/index.js",
-  "module": "app/esm/index.js",
+  "main": "generators/app/index.js",
   "files": [
-    "app"
+    "generators"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yurikrupnik/generators.git"
   },
   "scripts": {
+    "start": "rollup -c=../../rollup.config.js -w",
     "lint": "eslint src",
     "test": "jest --runInBand",
-    "build": "rollup -c=../../rollup.config.js"
+    "prebuild": "rimraf generators",
+    "build": "rollup -c=../../rollup.config.js",
+    "link": "npm link",
+    "unlink": "npm unlink"
   },
   "bugs": {
     "url": "https://github.com/yurikrupnik/generators/issues"
@@ -43,5 +46,7 @@
     "esling-plugin",
     "esling-config"
   ],
-  "eslintIgnore": ["src/templates/**"]
+  "eslintIgnore": [
+    "src/app/templates/**"
+  ]
 }

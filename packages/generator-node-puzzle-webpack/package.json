@@ -1,9 +1,9 @@
 {
-  "name": "generator-node-puzzle-babel",
-  "version": "1.0.3",
-  "description": "Generator for babel files and packages",
+  "name": "generator-node-puzzle-webpack",
+  "version": "1.0.0",
+  "description": "> TODO: description",
   "author": "yurikrupnik <krupnik.yuri@gmail.com>",
-  "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-babel#readme",
+  "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-webpack#readme",
   "license": "ISC",
   "main": "generators/app/index.js",
   "files": [

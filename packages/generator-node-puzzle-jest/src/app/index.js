@@ -1,6 +1,8 @@
-import Base from 'yeoman-generator';
+// import Base from 'yeoman-generator';
 
-class JestGenerator extends Base {
+const Base = require('yeoman-generator');
+
+module.exports = class JestGenerator extends Base {
     constructor(args, opts) {
         super(args, opts);
         this.option('testEnvironment', {
@@ -104,6 +106,6 @@ class JestGenerator extends Base {
 
         return jestConfig;
     }
-}
+};
 
-export default JestGenerator;
+// export default JestGenerator;

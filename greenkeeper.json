@@ -4,8 +4,11 @@
       "packages": [
         "package.json",
         "packages/generator-node-puzzle-babel/package.json",
+        "packages/generator-node-puzzle-client/package.json",
         "packages/generator-node-puzzle-eslint/package.json",
-        "packages/generator-node-puzzle-jest/package.json"
+        "packages/generator-node-puzzle-jest/package.json",
+        "packages/generator-node-puzzle-react/package.json",
+        "packages/generator-node-puzzle-webpack/package.json"
       ]
     }
   }

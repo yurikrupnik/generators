@@ -1,6 +1,7 @@
-import Base from 'yeoman-generator';
+// import Base from 'yeoman-generator';
+const Base = require('yeoman-generator');
 
-class BabelGenerator extends Base {
+module.exports = class BabelGenerator extends Base {
     constructor(args, opts) {
         super(args, opts);
 
@@ -44,6 +45,6 @@ class BabelGenerator extends Base {
     install() {
         this._installDevPackages();
     }
-}
+};
 
-export default BabelGenerator;
+// export default BabelGenerator;

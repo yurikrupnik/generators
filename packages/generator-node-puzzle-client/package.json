@@ -54,7 +54,7 @@
     "auth"
   ],
   "dependencies": {
-    "fs-extra": "^8.1.0",
+    "fs-extra": "^9.0.0",
     "generator-node-puzzle-angular": "^1.0.0",
     "generator-node-puzzle-react": "^1.0.0",
     "generator-node-puzzle-vue": "^1.0.0",

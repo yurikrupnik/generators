@@ -38,7 +38,7 @@
     "coveralls": "^3.0.9",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^18.0.1",
-    "eslint-loader": "^3.0.3",
+    "eslint-loader": "^4.0.0",
     "eslint-plugin-import": "^2.20.0",
     "husky": "^4.1.0",
     "jest": "^24.9.0",

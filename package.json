@@ -44,7 +44,7 @@
     "jest": "^24.9.0",
     "lerna": "^3.20.2",
     "prettier": "^1.19.1",
-    "rollup": "^1.29.1",
+    "rollup": "^2.7.3",
     "rollup-plugin-auto-external": "^2.0.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",

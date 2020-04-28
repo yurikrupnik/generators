@@ -13,7 +13,8 @@
     "pretests": "npm run lint",
     "prewatch": "npm run prebuild",
     "prepublishOnly": "npm run build",
-    "publish": "lerna publish"
+    "publish": "lerna publish",
+    "news": ""
   },
   "repository": {
     "type": "git",

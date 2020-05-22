@@ -1,77 +1,79 @@
 {
-  "name": "generators",
-  "version": "1.0.0",
-  "description": "Custom Yeoman generators monorepo",
-  "scripts": {
-    "lint:scoped": "lerna run lint --scope generator-node-puzzle-eslint",
-    "start": "lerna run --parallel start",
-    "pi": "npx lerna exec -- npm i",
-    "lint": "lerna run --parallel lint",
-    "test": "lerna run --stream test",
-    "build": "lerna run --parallel build",
-    "builds": "lerna run build --scope generator-node-puzzle-babel",
-    "pretests": "npm run lint",
-    "prewatch": "npm run prebuild",
-    "prepublishOnly": "npm run build",
-    "publish": "lerna publish"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yurikrupnik/generators.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/yurikrupnik/generators/issues"
-  },
-  "homepage": "https://github.com/yurikrupnik/generators#readme",
-  "devDependencies": {
-    "@babel/core": "^7.8.3",
-    "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
-    "@babel/plugin-transform-modules-commonjs": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
-    "babel-eslint": "^10.0.3",
-    "babel-jest": "^24.9.0",
-    "babel-loader": "^8.0.6",
-    "copy-webpack-plugin": "^5.0.3",
-    "coveralls": "^3.0.9",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-loader": "^3.0.3",
-    "eslint-plugin-import": "^2.20.0",
-    "husky": "^4.1.0",
-    "jest": "^24.9.0",
-    "lerna": "^3.20.2",
-    "prettier": "^1.19.1",
-    "rollup": "^1.29.1",
-    "rollup-plugin-auto-external": "^2.0.0",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-copy": "^3.2.1",
-    "rollup-plugin-json": "^4.0.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-terser": "^5.2.0",
-    "yeoman-test": "^2.1.0"
-  },
-  "dependencies": {},
-  "jest": {
-    "collectCoverage": true,
-    "testEnvironment": "node",
-    "testPathIgnorePatterns": [
-      "templates"
-    ]
-  },
-  "prettier": {
-    "singleQuote": true,
-    "printWidth": 100,
-    "arrowParens": "always",
-    "tabWidth": 4
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm run test"
+    "name": "generators",
+    "version": "1.0.0",
+    "description": "Custom Yeoman generators monorepo",
+    "scripts": {
+        "lint:scoped": "lerna run lint --scope generator-node-puzzle-eslint",
+        "start": "lerna run --parallel start",
+        "pi": "npx lerna exec -- npm i",
+        "lint": "lerna run --parallel lint",
+        "test": "lerna run --stream test",
+        "build": "lerna run --parallel build",
+        "builds": "lerna run build --scope generator-node-puzzle-babel",
+        "pretests": "npm run lint",
+        "prewatch": "npm run prebuild",
+        "prepublishOnly": "npm run build",
+        "publish": "lerna publish",
+        "link": "lerna run --stream link",
+        "unlink": "lerna run --stream unlink"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yurikrupnik/generators.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/yurikrupnik/generators/issues"
+    },
+    "homepage": "https://github.com/yurikrupnik/generators#readme",
+    "devDependencies": {
+        "@babel/core": "^7.9.6",
+        "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
+        "@babel/plugin-transform-modules-commonjs": "^7.9.6",
+        "@babel/preset-env": "^7.9.6",
+        "babel-eslint": "^10.1.0",
+        "babel-jest": "^26.0.1",
+        "babel-loader": "^8.1.0",
+        "copy-webpack-plugin": "^6.0.1",
+        "coveralls": "^3.1.0",
+        "eslint": "^7.0.0",
+        "eslint-config-airbnb": "^18.0.1",
+        "eslint-loader": "^4.0.2",
+        "eslint-plugin-import": "^2.20.2",
+        "husky": "^4.2.5",
+        "jest": "^26.0.1",
+        "lerna": "^3.21.0",
+        "prettier": "^2.0.5",
+        "rollup": "^2.10.7",
+        "rollup-plugin-auto-external": "^2.0.0",
+        "rollup-plugin-babel": "^4.4.0",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-copy": "^3.3.0",
+        "rollup-plugin-json": "^4.0.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-terser": "^5.3.0",
+        "yeoman-test": "^2.6.0"
+    },
+    "dependencies": {},
+    "jest": {
+        "collectCoverage": true,
+        "testEnvironment": "node",
+        "testPathIgnorePatterns": [
+            "templates"
+        ]
+    },
+    "prettier": {
+        "singleQuote": true,
+        "printWidth": 100,
+        "arrowParens": "always",
+        "tabWidth": 4
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run lint",
+            "pre-push": "npm run test"
+        }
     }
-  }
 }

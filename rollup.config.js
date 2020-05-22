@@ -10,7 +10,7 @@ const plugins = [
     resolve({}),
     commonjs({}),
     autoExternal(),
-    // terser(),
+    terser(),
     copy({
         targets: [
             {

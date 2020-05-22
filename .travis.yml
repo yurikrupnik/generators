@@ -22,7 +22,7 @@ before_deploy:
 #  skip_cleanup: true
 #  on:
 #    node: "8"
-#    tags: true
+#    tags: truesd
 jobs:
     include:
         - stage: Produce Coverage

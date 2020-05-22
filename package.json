@@ -14,7 +14,8 @@
         "prewatch": "npm run prebuild",
         "prepublishOnly": "npm run build",
         "publish": "lerna publish",
-        "news": ""
+        "link": "lerna run --stream link",
+        "unlink": "lerna run --stream unlink"
     },
     "repository": {
         "type": "git",

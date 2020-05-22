@@ -46,7 +46,7 @@
     "esling-plugin",
     "esling-config"
   ],
-  "eslintIgnore": [
-    "src/app/templates/**"
-  ]
+  "eslintConfig": {
+    "ignorePatterns": ["src/app/templates"]
+  }
 }

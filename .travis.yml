@@ -1,6 +1,7 @@
 language: node_js
 node_js:
-    - '8'
+    - '13'
+    - '12'
     - '10'
 cache:
     yarn: true
@@ -21,7 +22,7 @@ before_deploy:
 #  skip_cleanup: true
 #  on:
 #    node: "8"
-#    tags: true
+#    tags: truesd
 jobs:
     include:
         - stage: Produce Coverage

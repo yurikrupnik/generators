@@ -44,7 +44,7 @@
         "eslint-plugin-import": "^2.20.2",
         "husky": "^4.2.5",
         "jest": "^26.0.1",
-        "lerna": "^3.21.0",
+        "lerna": "^3.22.0",
         "prettier": "^2.0.5",
         "rollup": "^2.10.7",
         "rollup-plugin-auto-external": "^2.0.0",

@@ -29,7 +29,7 @@
     },
     "homepage": "https://github.com/yurikrupnik/generators#readme",
     "devDependencies": {
-        "@babel/core": "^7.9.6",
+        "@babel/core": "^7.10.1",
         "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
         "@babel/plugin-transform-modules-commonjs": "^7.9.6",
         "@babel/preset-env": "^7.9.6",

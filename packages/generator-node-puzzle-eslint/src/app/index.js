@@ -6,6 +6,7 @@ const Base = require('yeoman-generator');
 const util = require('util');
 const chalk = require('chalk');
 // import chalk from 'chalk';
+// import util from 'util';
 
 const exec = util.promisify(require('child_process').exec); // a;
 
@@ -94,10 +95,10 @@ class EslintGenerator extends Base {
         });
 
         const { extendsArray, plugins } = this;
-        // const { personal } = this.options;
+        const { personal } = this.options;
         this.fs.copyTpl(this.templatePath('.*'), this.destinationPath(), {
             extendsArray,
-            // personal,
+            personal,
             plugins,
         });
     }

@@ -48,6 +48,6 @@ jobs:
             - run: npm run lint -- --since
             - run: npm run test -- --since
             - run: npm run build -- --since
-            - run: npx lerna publish patch --yes
+              #            - run: npx lerna publish patch --yes
               env:
                   NODE_AUTH_TOKEN: ${{secrets.npm_token}}

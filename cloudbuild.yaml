@@ -18,7 +18,7 @@ steps:
       waitFor:
           - ci
     - name: 'node:12.10.0'
-      args: ['npx', 'lerna', 'changed']
+      args: ['lerna', 'changed']
       entrypoint: 'npm'
       id: lerna
       waitFor:

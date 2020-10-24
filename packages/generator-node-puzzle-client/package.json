@@ -1,6 +1,6 @@
 {
   "name": "generator-node-puzzle-client",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "> TODO: description",
   "author": "yurikrupnik <krupnik.yuri@gmail.com>",
   "homepage": "https://github.com/yurikrupnik/generators/tree/master/packages/generator-node-puzzle-client#readme",
@@ -56,7 +56,7 @@
   "dependencies": {
     "fs-extra": "^8.1.0",
     "generator-node-puzzle-angular": "^1.0.0",
-    "generator-node-puzzle-react": "^1.0.3",
+    "generator-node-puzzle-react": "^1.0.4",
     "generator-node-puzzle-vue": "^1.0.0",
     "yeoman-generator": "^3.2.0"
   },

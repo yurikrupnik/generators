@@ -3,12 +3,11 @@ import Base from 'yeoman-generator';
 class WebpackGenerator extends Base {
     constructor(args, opts) {
         super(args, opts);
-
         this.option('type', {
             type: String,
             required: false,
             desc: 'Client base stack',
-            default: 'client'
+            default: 'client',
         });
     }
 
@@ -44,7 +43,7 @@ class WebpackGenerator extends Base {
 
     _installDevPackages() {
         this.npmInstall(['webpack', 'webpack-cli', 'webpack-bundle-analyzer'], {
-            'save-dev': true
+            'save-dev': true,
         });
     }
 

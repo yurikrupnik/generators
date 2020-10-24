@@ -9,7 +9,7 @@ describe('webpack generator', () => {
         helpers
             .run(path.join(__dirname, '../index.js'))
             .withOptions({
-                type: 'server'
+                type: 'server',
             })
             .then(() => {
                 assert.file('webpack.config.js');
@@ -18,7 +18,7 @@ describe('webpack generator', () => {
         helpers
             .run(path.join(__dirname, '../index.js'))
             .withOptions({
-                type: 'client'
+                type: 'client',
             })
             .then(() => {
                 assert.file('webpack.config.js');
@@ -27,7 +27,7 @@ describe('webpack generator', () => {
         helpers
             .run(path.join(__dirname, '../index.js'))
             .withOptions({
-                type: 'fullstack'
+                type: 'fullstack',
             })
             .then(() => {
                 assert.file('webpack.config.server.js');

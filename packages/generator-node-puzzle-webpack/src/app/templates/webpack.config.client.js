@@ -31,15 +31,15 @@ module.exports = (env) => {
     return {
         context: path.resolve(__dirname, 'src'), // todo
         optimization: {
-            minimizer: [isProd ? new TerserPlugin() : () => {}, new OptimizeCSSAssetsPlugin({})]
+            minimizer: [isProd ? new TerserPlugin() : () => {}, new OptimizeCSSAssetsPlugin({})],
         },
         target: 'web',
         resolve: {
             extensions: ['.json', '.js', '.jsx', '.css', '.scss', '.vue'], // todo
             alias: {
                 ...alias,
-                vue: 'vue/dist/vue.js' // todo
-            }
+                vue: 'vue/dist/vue.js', // todo
+            },
         },
         devtool: isProd ? 'source-map' : 'eval-cheap-module-source-map',
         entry: './client.jsx', // todo
@@ -47,7 +47,7 @@ module.exports = (env) => {
             filename: '[name].js',
             chunkFilename: '[name].js',
             path: path.resolve(__dirname, 'dist/assets'),
-            publicPath: '/'
+            publicPath: '/',
         },
         mode: isProd ? 'production' : 'development',
         module: {
@@ -55,20 +55,20 @@ module.exports = (env) => {
                 {
                     test: /\.(js|jsx)$/, // todo
                     use: ['babel-loader'],
-                    exclude: /node_modules/
+                    exclude: /node_modules/,
                 },
                 {
                     test: /\.vue$/, // todo
-                    loader: 'vue-loader'
+                    loader: 'vue-loader',
                 },
                 {
                     test: /\.(html)$/, // todo
                     use: {
                         loader: 'html-loader',
                         options: {
-                            attrs: [':data-src']
-                        }
-                    }
+                            attrs: [':data-src'],
+                        },
+                    },
                 },
                 {
                     test: /\.(css|scss)$/, // todo
@@ -81,38 +81,38 @@ module.exports = (env) => {
                                 modules: true,
                                 localIdentName: isProd
                                     ? '[hash:base64]'
-                                    : '[local]--[hash:base64:5]'
-                            }
+                                    : '[local]--[hash:base64:5]',
+                            },
                         },
                         {
                             // todo
                             loader: 'sass-loader',
                             options: {
-                                functions: sassFuncs(sassVars)
-                            }
-                        }
-                    ]
+                                functions: sassFuncs(sassVars),
+                            },
+                        },
+                    ],
                 },
                 {
                     // todo
                     test: /\.ejs$/,
-                    use: 'raw-loader'
+                    use: 'raw-loader',
                 },
                 {
                     test: /\.(png|jpg|gif)$/,
                     use: [
                         {
                             loader: 'file-loader',
-                            options: {}
-                        }
-                    ]
-                }
-            ]
+                            options: {},
+                        },
+                    ],
+                },
+            ],
         },
         plugins: [
             new webpack.DefinePlugin({
                 'process.env.DEBUG': JSON.stringify(isDebug),
-                'process.env.PORT': JSON.stringify(process.env.PORT)
+                'process.env.PORT': JSON.stringify(process.env.PORT),
             }),
             new HtmlWebpackPlugin({
                 // todo
@@ -121,20 +121,20 @@ module.exports = (env) => {
                 favicon: 'assets/favicon.ico',
                 meta: {
                     charset: 'UTF-8',
-                    viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'
+                    viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
                 },
                 minify: {
                     removeComments: true,
                     collapseWhitespace: true,
-                    conservativeCollapse: true
-                }
+                    conservativeCollapse: true,
+                },
             }),
             new MiniCssExtractPlugin({
                 filename: !isProd ? '[name].css' : '[name].[hash].css',
-                chunkFilename: !isProd ? '[id].css' : '[id].[hash].css'
+                chunkFilename: !isProd ? '[id].css' : '[id].[hash].css',
             }),
             new BundleAnalyzerPlugin({}),
-            new VueLoaderPlugin()
+            new VueLoaderPlugin(),
         ],
         devServer: {
             // when not prod - NODE_ENV_DOCKER taken from docker-compose env
@@ -143,8 +143,8 @@ module.exports = (env) => {
             open: true,
             host: process.env.NODE_ENV_DOCKER ? '0.0.0.0' : 'localhost',
             proxy: {
-                '/': { target: `http://localhost:${config.port}` }
-            }
-        }
+                '/': { target: `http://localhost:${config.port}` },
+            },
+        },
     };
 };

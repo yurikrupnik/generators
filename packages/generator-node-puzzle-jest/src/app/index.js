@@ -7,35 +7,35 @@ class JestGenerator extends Base {
             type: String,
             required: false,
             desc: 'Test Environment',
-            default: 'jsdom'
+            default: 'jsdom',
         });
 
         this.option('destinationPath', {
             type: String,
             required: false,
             desc: 'Destination path',
-            default: ''
+            default: '',
         });
 
         this.option('e2ePath', {
             type: String,
             required: false,
             desc: 'e2e folder path',
-            default: 'e2e'
+            default: 'e2e',
         });
 
         this.option('e2e', {
             type: Boolean,
             required: false,
             desc: 'Include e2e',
-            default: false
+            default: false,
         });
 
         this.option('css', {
             type: Boolean,
             required: false,
             desc: 'Include css to config',
-            default: false
+            default: false,
         });
     }
 
@@ -50,7 +50,7 @@ class JestGenerator extends Base {
     installDevPackages() {
         const { css, e2e } = this.options;
         this.npmInstall(['jest'].concat(css ? 'identity-obj-proxy' : ''), {
-            'save-dev': true
+            'save-dev': true,
         });
 
         if (e2e) {
@@ -69,7 +69,7 @@ class JestGenerator extends Base {
     updatePackageJson() {
         this.fs.extendJSON(this.destinationPath('package.json'), {
             scripts: this.handleScriptsPkg(),
-            jest: this.handleJestPkg()
+            jest: this.handleJestPkg(),
         });
     }
 
@@ -78,11 +78,11 @@ class JestGenerator extends Base {
         const scripts = {
             test: `jest ${destinationPath}`,
             'test:watch': `jest ${destinationPath} --watch`,
-            'test:coverage': `jest ${destinationPath} --coverage`
+            'test:coverage': `jest ${destinationPath} --coverage`,
         };
 
         const e2eScripts = {
-            'test:e2e': `jest ${e2ePath}/`
+            'test:e2e': `jest ${e2ePath}/`,
         };
 
         return Object.assign({}, scripts, e2e ? e2eScripts : {}); // eslint-disable-line
@@ -93,12 +93,12 @@ class JestGenerator extends Base {
 
         const jestConfig = {
             testEnvironment,
-            modulePathIgnorePatterns: ['<rootDir>/.*/__mocks__']
+            modulePathIgnorePatterns: ['<rootDir>/.*/__mocks__'],
         };
 
         if (css) {
             jestConfig.moduleNameMapper = {
-                '\\.(css|less|scss)$': 'identity-obj-proxy'
+                '\\.(css|less|scss)$': 'identity-obj-proxy',
             };
         }
 

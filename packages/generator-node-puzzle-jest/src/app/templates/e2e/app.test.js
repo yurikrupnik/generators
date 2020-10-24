@@ -5,7 +5,7 @@ describe('App', () => {
     let page;
     beforeAll(async () => {
         browser = await puppeteer.launch({
-            headless: false
+            headless: false,
         });
 
         page = await browser.newPage();

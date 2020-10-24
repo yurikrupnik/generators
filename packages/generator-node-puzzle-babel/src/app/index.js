@@ -9,14 +9,14 @@ class BabelGenerator extends Base {
             type: String,
             required: false,
             desc: 'destination root',
-            default: ''
+            default: '',
         });
 
         this.option('react', {
             type: Boolean,
             required: false,
             desc: 'Include React support',
-            default: false
+            default: false,
         });
     }
 
@@ -27,7 +27,7 @@ class BabelGenerator extends Base {
                 '@babel/core',
                 '@babel/plugin-syntax-object-rest-spread',
                 '@babel/plugin-syntax-dynamic-import',
-                '@babel/preset-env'
+                '@babel/preset-env',
             ].concat(react ? ['@babel/preset-react'] : []),
             { 'save-dev': true }
         );

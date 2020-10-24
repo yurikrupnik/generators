@@ -22,35 +22,35 @@ class ReactGenerator extends Base {
             type: Boolean,
             required: false,
             desc: 'Include css files',
-            default: true
+            default: true,
         });
 
         this.option('sass', {
             type: Boolean, // todo check that
             required: Boolean,
             desc: 'Include sass files',
-            default: false
+            default: false,
         });
 
         this.option('ssr', {
             type: Boolean,
             required: Boolean,
             desc: 'Include server side rendering',
-            default: false
+            default: false,
         });
     }
 
     configuring() {
         this.config.set({
             extentions: '.jsx',
-            sos: 'yes'
+            sos: 'yes',
         });
     }
 
     writing() {
         // this.fs.extendJSON(this.destinationPath('package.json'), this._getDefaultPackage());
         this.fs.extendJSON(this.destinationPath('package.json'), {
-            name: 'came-from-react'
+            name: 'came-from-react',
         });
         this.fs.copyTpl(this.templatePath(), this.destinationPath('src'), this.options);
     }
@@ -65,7 +65,7 @@ class ReactGenerator extends Base {
                 '@babel/preset-react',
                 'eslint-plugin-jsx-a11y',
                 'eslint-plugin-react',
-                'react-testing-library'
+                'react-testing-library',
             ],
             { 'save-dev': true }
         );
@@ -91,7 +91,7 @@ class ReactGenerator extends Base {
                 scripts: {},
                 main: 'index.ksx',
                 dependencies: {},
-                devDependencies: {}
+                devDependencies: {},
             });
         }
         const lint = this.fs.readJSON(this.destinationPath('.eslintrc'));
@@ -106,11 +106,11 @@ class ReactGenerator extends Base {
                         {
                             components: ['Link'],
                             specialLink: ['to'],
-                            aspects: ['noHref', 'invalidHref', 'preferButton']
-                        }
-                    ]
+                            aspects: ['noHref', 'invalidHref', 'preferButton'],
+                        },
+                    ],
                 },
-                extends: ['airbnb'] // overwrites arrays
+                extends: ['airbnb'], // overwrites arrays
             });
         }
         // else {
@@ -135,7 +135,7 @@ class ReactGenerator extends Base {
             // todo test
             this.fs.extendJSON(this.destinationPath('.babelrc'), {
                 presets: babel.presets.concat('@babel/preset-react'),
-                plugins: babel.plugins.concat('react-loadable/babel')
+                plugins: babel.plugins.concat('react-loadable/babel'),
             });
         }
     }

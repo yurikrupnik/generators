@@ -12,7 +12,7 @@ describe('Babel Generator', () => {
         helpers
             .run(path.join(__dirname, '../index.js'))
             .withOptions({
-                react: false
+                react: false,
             })
             .then(() => {
                 assert.file('.babelrc');
@@ -24,7 +24,7 @@ describe('Babel Generator', () => {
         helpers
             .run(path.join(__dirname, '../index.js'))
             .withOptions({
-                react: true
+                react: true,
             })
             .then(() => {
                 assert.file('.babelrc');
@@ -36,7 +36,7 @@ describe('Babel Generator', () => {
         helpers
             .run(path.join(__dirname, '../index.js'))
             .withOptions({
-                destination: 'rand'
+                destination: 'rand',
             })
             .then(() => {
                 assert.file('rand/.babelrc');

@@ -19,17 +19,17 @@ class EslintGenerator extends Base {
         this.argument('configs', {
             type: String,
             required: false,
-            default: ''
+            default: '',
         });
         this.argument('plugins', {
             type: String,
             required: false,
-            default: ''
+            default: '',
         });
         this.option('personal', {
             type: Boolean,
             required: false,
-            default: false
+            default: false,
         });
     }
 
@@ -90,8 +90,8 @@ class EslintGenerator extends Base {
     writing() {
         this.fs.extendJSON(this.destinationPath('package.json'), {
             scripts: {
-                lint: 'eslint .'
-            }
+                lint: 'eslint .',
+            },
         });
 
         const { extendsArray, plugins } = this;
@@ -99,7 +99,7 @@ class EslintGenerator extends Base {
         this.fs.copyTpl(this.templatePath('.*'), this.destinationPath(), {
             extendsArray,
             personal,
-            plugins
+            plugins,
         });
     }
 

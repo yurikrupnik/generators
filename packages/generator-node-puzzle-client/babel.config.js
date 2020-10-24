@@ -3,8 +3,8 @@ module.exports = (api) => {
     return {
         env: {
             test: {
-                plugins: ['@babel/plugin-transform-modules-commonjs']
-            }
-        }
+                plugins: ['@babel/plugin-transform-modules-commonjs'],
+            },
+        },
     };
 };

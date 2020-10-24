@@ -22,21 +22,21 @@ class ReactComponentGenerator extends Base {
             type: Boolean,
             required: false,
             desc: 'Include css files',
-            default: true
+            default: true,
         });
 
         this.option('sass', {
             type: Boolean, // todo check that
             required: Boolean,
             desc: 'Include sass files',
-            default: false
+            default: false,
         });
 
         this.option('ssr', {
             type: Boolean,
             required: Boolean,
             desc: 'Include server side rendering',
-            default: false
+            default: false,
         });
     }
 
@@ -90,7 +90,7 @@ class ReactComponentGenerator extends Base {
                 scripts: {},
                 main: 'index.ksx',
                 dependencies: {},
-                devDependencies: {}
+                devDependencies: {},
             });
         }
         const lint = this.fs.readJSON(this.destinationPath('.eslintrc'));
@@ -105,11 +105,11 @@ class ReactComponentGenerator extends Base {
                         {
                             components: ['Link'],
                             specialLink: ['to'],
-                            aspects: ['noHref', 'invalidHref', 'preferButton']
-                        }
-                    ]
+                            aspects: ['noHref', 'invalidHref', 'preferButton'],
+                        },
+                    ],
                 },
-                extends: ['airbnb'] // overwrites arrays
+                extends: ['airbnb'], // overwrites arrays
             });
         }
         // else {
@@ -134,7 +134,7 @@ class ReactComponentGenerator extends Base {
             // todo test
             this.fs.extendJSON(this.destinationPath('.babelrc'), {
                 presets: babel.presets.concat('@babel/preset-react'),
-                plugins: babel.plugins.concat('react-loadable/babel')
+                plugins: babel.plugins.concat('react-loadable/babel'),
             });
         }
     }

@@ -25,7 +25,7 @@ class ClientGenerator extends Base {
             type: String,
             required: false,
             default: '',
-            desc: 'Include webpack config type'
+            desc: 'Include webpack config type',
         });
 
         this.option('yebal');
@@ -34,14 +34,14 @@ class ClientGenerator extends Base {
             type: Boolean,
             required: false,
             default: true,
-            desc: 'Include .css files'
+            desc: 'Include .css files',
         });
 
         this.option('sass', {
             type: Boolean,
             required: false,
             default: false,
-            desc: 'Include SASS .scss files'
+            desc: 'Include SASS .scss files',
         });
     }
 
@@ -54,18 +54,18 @@ class ClientGenerator extends Base {
                 choices: [
                     {
                         value: 'react',
-                        name: 'React'
+                        name: 'React',
                     },
                     {
                         value: 'vue',
-                        name: 'Vue'
+                        name: 'Vue',
                     },
                     {
                         value: 'angular',
-                        name: 'Angular'
-                    }
+                        name: 'Angular',
+                    },
                 ],
-                store: true
+                store: true,
                 // when: () => this.options.stack
             },
             {
@@ -73,8 +73,8 @@ class ClientGenerator extends Base {
                 name: 'sass',
                 message: 'Would you like to use SASS to compile CSS',
                 default: true,
-                store: true
-            }
+                store: true,
+            },
         ]);
     }
 
@@ -88,7 +88,7 @@ class ClientGenerator extends Base {
             this.composeWith(
                 {
                     Generator: ReactGenerator,
-                    path: require.resolve('generator-node-puzzle-react')
+                    path: require.resolve('generator-node-puzzle-react'),
                 },
                 {
                     // args: ['lolaa'],
@@ -96,27 +96,27 @@ class ClientGenerator extends Base {
                     // appname: ['ima'],
                     appname: 'lol',
                     // argumentappname: 'cs',
-                    ass: 'uess'
+                    ass: 'uess',
                 }
             );
         } else if (props.stack === 'vue') {
             this.composeWith(
                 {
                     Generator: VueGenerator,
-                    path: require.resolve('generator-node-puzzle-vue')
+                    path: require.resolve('generator-node-puzzle-vue'),
                 },
                 {
-                    sass
+                    sass,
                 }
             );
         } else if (props.stack === 'angular') {
             this.composeWith(
                 {
                     Generator: AngularGenerator,
-                    path: require.resolve('generator-node-puzzle-angular')
+                    path: require.resolve('generator-node-puzzle-angular'),
                 },
                 {
-                    sass
+                    sass,
                     // arguments: []
                 }
             );
@@ -137,7 +137,7 @@ class ClientGenerator extends Base {
                 'mini-css-extract-plugin',
                 'optimize-css-assets-webpack-plugin',
                 'style-loader',
-                'webpack-dev-server'
+                'webpack-dev-server',
             ].concat(sass),
             { 'save-dev': true }
         );

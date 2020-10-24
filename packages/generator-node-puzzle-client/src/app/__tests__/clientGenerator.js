@@ -22,24 +22,24 @@ describe('Client generator', () => {
         helpers
             .run(path.join(__dirname, '../index.js'))
             .withOptions({
-                sass: true
+                sass: true,
             })
             .withPrompts({
-                stack: 'react'
+                stack: 'react',
             })
             .then(() => {}));
     test('Client generator vue', () =>
         helpers
             .run(path.join(__dirname, '../index.js'))
             .withPrompts({
-                stack: 'vue'
+                stack: 'vue',
             })
             .then(() => {}));
     test('Client generator angular', () =>
         helpers
             .run(path.join(__dirname, '../index.js'))
             .withPrompts({
-                stack: 'angular'
+                stack: 'angular',
             })
             .then(() => {}));
 });

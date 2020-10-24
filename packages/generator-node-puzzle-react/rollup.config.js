@@ -19,14 +19,14 @@ const plugins = [
         targets: [
             {
                 src: 'src/app/templates',
-                dest: 'generators/app/'
+                dest: 'generators/app/',
             },
             {
                 src: 'src/react/templates',
-                dest: 'generators/react/'
-            }
-        ]
-    })
+                dest: 'generators/react/',
+            },
+        ],
+    }),
 ];
 
 const config = [
@@ -35,19 +35,19 @@ const config = [
         output: {
             // file: path.join(cwd, 'generators/app', 'index.js'),
             dir: 'generators/app',
-            format: 'cjs'
+            format: 'cjs',
         },
-        plugins
+        plugins,
     },
     {
         input: 'src/component/index.js',
         output: {
             // file: path.join(cwd, 'generators/app', 'index.js'),
             dir: 'generators/component',
-            format: 'cjs'
+            format: 'cjs',
         },
-        plugins
-    }
+        plugins,
+    },
 ];
 
 export default config;

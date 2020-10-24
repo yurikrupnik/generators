@@ -15,7 +15,7 @@ module.exports = (env, argv) => {
     return {
         context: path.resolve(__dirname, 'src'),
         resolve: {
-            extensions: ['.json', '.js', '.jsx', '.css', '.scss'] // todo
+            extensions: ['.json', '.js', '.jsx', '.css', '.scss'], // todo
         },
         target: 'node', // in order to ignore built-in modules like path, fs, etc.
         node: false,
@@ -25,14 +25,14 @@ module.exports = (env, argv) => {
         output: {
             path: path.resolve(__dirname, 'dist'),
             chunkFilename: '[name].js',
-            filename
+            filename,
         },
         mode: isProd ? 'production' : 'development',
         module: {
             rules: [
                 {
                     test: /\.(js|jsx)$/, // todo
-                    use: ['babel-loader', 'eslint-loader']
+                    use: ['babel-loader', 'eslint-loader'],
                 },
                 {
                     // todo
@@ -41,43 +41,43 @@ module.exports = (env, argv) => {
                         'css-loader',
                         {
                             // todo
-                            loader: 'sass-loader'
-                        }
-                    ]
+                            loader: 'sass-loader',
+                        },
+                    ],
                 },
                 {
                     test: /\.(png|jpg|gif)$/,
                     use: [
                         {
                             loader: 'file-loader',
-                            options: {}
-                        }
-                    ]
-                }
-            ]
+                            options: {},
+                        },
+                    ],
+                },
+            ],
         },
         plugins: [
             new webpack.DefinePlugin({
                 'process.env.DEBUG': JSON.stringify(isDebug),
-                'process.env.PORT': JSON.stringify(process.env.PORT)
+                'process.env.PORT': JSON.stringify(process.env.PORT),
             }),
             new GenerateJsonPlugin(
                 'package.json',
                 Object.assign({}, json, {
                     main: filename,
                     scripts: {
-                        start: `node ${filename}`
+                        start: `node ${filename}`,
                     },
-                    devDependencies: {}
+                    devDependencies: {},
                 })
             ),
             argv.watch
                 ? new NodemonPlugin({
                       script: path.resolve(__dirname, 'dist', filename),
                       watch: path.resolve(__dirname, 'dist', filename),
-                      verbose: true
+                      verbose: true,
                   })
-                : () => {}
-        ]
+                : () => {},
+        ],
     };
 };

@@ -19,7 +19,7 @@ describe('react generator', () => {
             helpers
                 .run(path.join(__dirname, '../index.js'))
                 .withOptions({
-                    sass: true
+                    sass: true,
                 })
                 .then(() => {
                     // assert.file('src/index.jsx');
@@ -29,7 +29,7 @@ describe('react generator', () => {
             helpers
                 .run(path.join(__dirname, '../index.js'))
                 .withOptions({
-                    sass: false
+                    sass: false,
                 })
                 .then(() => {
                     // assert.file('src/index.jsx');
@@ -39,7 +39,7 @@ describe('react generator', () => {
             helpers
                 .run(path.join(__dirname, '../index.js'))
                 .withOptions({
-                    sass: true
+                    sass: true,
                 })
                 .then(() => {
                     // assert.file('src/index.jsx');

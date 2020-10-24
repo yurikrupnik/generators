@@ -24,7 +24,7 @@ describe('Eslint generator', () => {
             .run(path.join(__dirname, '../index.js'))
             .withOptions({
                 configs: 'airbnb',
-                plugins: 'jest'
+                plugins: 'jest',
             })
             .then(() => {
                 assert.file('.eslintrc');
@@ -37,7 +37,7 @@ describe('Eslint generator', () => {
             .run(path.join(__dirname, '../index.js'))
             .withOptions({
                 configs: 'airbnb,none',
-                plugins: 'jest, none'
+                plugins: 'jest, none',
             })
             .then(() => {
                 assert.file('.eslintrc');

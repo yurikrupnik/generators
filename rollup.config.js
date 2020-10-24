@@ -15,19 +15,19 @@ const plugins = [
         targets: [
             {
                 src: 'src/app/templates',
-                dest: 'generators/app/'
-            }
-        ]
-    })
+                dest: 'generators/app/',
+            },
+        ],
+    }),
 ];
 
 const config = {
     input: 'src/app/index.js',
     output: {
         dir: 'generators/app',
-        format: 'cjs'
+        format: 'cjs',
     },
-    plugins
+    plugins,
 };
 
 export default config;

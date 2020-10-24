@@ -2,6 +2,7 @@
     "name": "generators",
     "version": "1.0.0",
     "description": "Custom Yeoman generators monorepo",
+    "private": true,
     "scripts": {
         "lint:scoped": "lerna run lint --scope generator-node-puzzle-eslint",
         "start": "lerna run --parallel start",

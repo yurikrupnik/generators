@@ -17,12 +17,12 @@ steps:
       id: post-install
       waitFor:
           - ci
-    - name: 'node:12.10.0'
-      args: ['lerna', 'changed']
-      entrypoint: 'npm'
-      id: lerna
-      waitFor:
-          - ci
+    #    - name: 'node:12.10.0'
+    #      args: ['lerna', 'changed']
+    #      entrypoint: 'npm'
+    #      id: lerna
+    #      waitFor:
+    #          - ci
     - name: 'node:12.10.0'
       args: ['run', 'lint', '--', '--since']
       entrypoint: 'npm'

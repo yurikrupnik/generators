@@ -6,7 +6,6 @@ const Base = require('yeoman-generator');
 const util = require('util');
 const chalk = require('chalk');
 // import chalk from 'chalk';
-// import util from 'util';
 
 const exec = util.promisify(require('child_process').exec); // a;
 

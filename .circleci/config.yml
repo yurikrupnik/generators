@@ -88,7 +88,7 @@ jobs:
                   command: npm run build
             - run:
                   name: Github login
-                  command: git config --global user.email "you@example.com" && git config --global user.email "you@example.com"
+                  command: git config --global user.email "krupnik.yuri@gmail.com" && git config --global user.name "yurikrupnik"
             - run:
                   name: Authenticate with registry
                   command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/.npmrc

@@ -108,10 +108,10 @@ workflows:
                   filters:
                       branches:
                           ignore: master
-#            - publish_npm:
-#                  filters:
-#                      branches:
-#                          only: master
+            - publish_npm:
+                  filters:
+                      branches:
+                          only: master
 #      - test
 #      - deploy_to_npm:
 #          <<: *only-deploy-tags

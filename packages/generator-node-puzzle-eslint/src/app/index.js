@@ -29,7 +29,7 @@ class EslintGenerator extends Base {
         this.option('personal', {
             type: Boolean,
             required: false,
-            default: false,
+            default: true,
         });
     }
 

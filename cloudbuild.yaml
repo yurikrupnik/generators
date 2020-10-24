@@ -12,13 +12,14 @@ steps:
     #      - --trigger-http
 
     - name: 'node:12.10.0'
-      args: ['run', 'postinstall']
+      args: ['run', 'pi']
       entrypoint: 'npm'
       id: post-install
       waitFor:
           - ci
     - name: 'node:12.10.0'
       args: ['npx', 'lerna', 'changed']
+      entrypoint: 'npm'
       id: lerna
       waitFor:
           - ci

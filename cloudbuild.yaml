@@ -1,0 +1,51 @@
+steps:
+    - name: 'node:${_NODE_VERSION}'
+      entrypoint: 'npm'
+      args: ['ci']
+      id: ci
+    #  - name: 'gcr.io/cloud-builders/gcloud'
+    #    args:
+    #      - app
+    #      - deploy
+    #      - [FUNCTION_NAME]
+    #      - --source=.
+    #      - --trigger-http
+
+    - name: 'node:12.10.0'
+      args: ['run', 'postinstall']
+      entrypoint: 'npm'
+      id: post-install
+      waitFor:
+          - ci
+    - name: 'node:12.10.0'
+      args: ['npx', 'lerna', 'changed']
+      id: lerna
+      waitFor:
+          - ci
+    - name: 'node:12.10.0'
+      args: ['run', 'lint', '--', '--since']
+      entrypoint: 'npm'
+      id: lint
+      waitFor:
+          - ci
+    - name: 'node:12.10.0'
+      args: ['run', 'test', '--', '--since']
+      entrypoint: 'npm'
+      id: test
+      waitFor:
+          - post-install
+    - name: 'node:12.10.0'
+      args: ['run', 'build', '--', '--since']
+      entrypoint: 'npm'
+      id: build
+      waitFor:
+          - post-install
+#  - name: 'node:12.10.0'
+#    args: ['run', 'build', '--', '--since']
+#    entrypoint: 'npm'
+#    waitFor:
+#      - build
+
+substitutions:
+    _NODE_VERSION: 12.10.0 #default value
+

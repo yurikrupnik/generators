@@ -24,19 +24,19 @@ steps:
     #      waitFor:
     #          - ci
     - name: 'node:12.10.0'
-      args: ['run', 'lint', '--', '--since']
+      args: ['run', 'lint']
       entrypoint: 'npm'
       id: lint
       waitFor:
           - pi
     - name: 'node:12.10.0'
-      args: ['run', 'test', '--', '--since']
+      args: ['run', 'test']
       entrypoint: 'npm'
       id: test
       waitFor:
           - pi
     - name: 'node:12.10.0'
-      args: ['run', 'build', '--', '--since']
+      args: ['run', 'build']
       entrypoint: 'npm'
       id: build
       waitFor:

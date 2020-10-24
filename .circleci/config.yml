@@ -95,7 +95,7 @@ jobs:
             - run:
                   name: Authenticate with registry
                   command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/.npmrc
-            - run: npx lerna publish patch --yes --no-push --conventional-commits
+            - run: npx lerna publish minor --yes --no-push --conventional-commits
             - run: npx lerna exec -- npm install --package-lock-only --ignore-scripts --no-audit
             - run: git add -u
             - run: git diff --quiet && git diff --staged --quiet || git commit -am "package-lock.json update"

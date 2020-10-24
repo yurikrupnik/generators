@@ -67,6 +67,7 @@ class JestGenerator extends Base {
     }
 
     updatePackageJson() {
+        console.log('ar'); // eslint-disable-line
         this.fs.extendJSON(this.destinationPath('package.json'), {
             scripts: this.handleScriptsPkg(),
             jest: this.handleJestPkg(),

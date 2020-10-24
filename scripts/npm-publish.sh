@@ -1,6 +1,5 @@
 #! /bin/bash
 
-#set -eo pipefail
 
 npx lerna publish patch --no-push --yes --conventional-commits
 npx lerna exec --stream --since -- npm i

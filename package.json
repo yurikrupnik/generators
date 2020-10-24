@@ -14,7 +14,7 @@
         "pretests": "npm run lint",
         "prewatch": "npm run prebuild",
         "prepublishOnly": "npm run build",
-        "publish": "node scripts/npm-publish.sh",
+        "publish": "bash scripts/npm-publish.sh",
         "link": "lerna run --stream link",
         "unlink": "lerna run --stream unlink"
     },

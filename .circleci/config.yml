@@ -91,7 +91,7 @@ jobs:
                   command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/.npmrc
             - run:
                   name: Publish package
-                  command: npx lerna publish patch
+                  command: npx lerna publish patch --yes
 
 workflows:
     version: 2

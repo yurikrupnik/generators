@@ -14,7 +14,7 @@ steps:
     - name: 'node:12.10.0'
       args: ['run', 'pi']
       entrypoint: 'npm'
-      id: post-install
+      id: pi
       waitFor:
           - ci
     #    - name: 'node:12.10.0'
@@ -28,19 +28,19 @@ steps:
       entrypoint: 'npm'
       id: lint
       waitFor:
-          - ci
+          - pi
     - name: 'node:12.10.0'
       args: ['run', 'test', '--', '--since']
       entrypoint: 'npm'
       id: test
       waitFor:
-          - post-install
+          - pi
     - name: 'node:12.10.0'
       args: ['run', 'build', '--', '--since']
       entrypoint: 'npm'
       id: build
       waitFor:
-          - post-install
+          - pi
 #  - name: 'node:12.10.0'
 #    args: ['run', 'build', '--', '--since']
 #    entrypoint: 'npm'

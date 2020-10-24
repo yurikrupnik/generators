@@ -36,7 +36,7 @@ class EslintGenerator extends Base {
     _handlePeerDependenciesPackages(packages) {
         const extraPackages = packages.reduce((acc, next) => {
             Object.keys(next).map((v) => acc.add(v)); // eslint-disable-line
-            return acc;
+            return acc; // eslint-disable-line
         }, new Set());
         this.packages = new Set([...this.packages, ...extraPackages]);
     }

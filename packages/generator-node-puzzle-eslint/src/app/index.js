@@ -94,10 +94,10 @@ class EslintGenerator extends Base {
         });
 
         const { extendsArray, plugins } = this;
-        const { personal } = this.options;
+        // const { personal } = this.options;
         this.fs.copyTpl(this.templatePath('.*'), this.destinationPath(), {
             extendsArray,
-            personal,
+            // personal,
             plugins,
         });
     }

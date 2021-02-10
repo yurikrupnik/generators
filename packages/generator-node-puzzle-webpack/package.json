@@ -26,7 +26,7 @@
     "url": "https://github.com/yurikrupnik/generators/issues"
   },
   "dependencies": {
-    "yeoman-generator": "^4.0.0"
+    "yeoman-generator": "^4.11.0"
   },
   "devDependencies": {
     "yeoman-assert": "^3.1.1",

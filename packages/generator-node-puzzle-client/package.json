@@ -61,7 +61,7 @@
     "yeoman-generator": "^4.0.0"
   },
   "devDependencies": {
-    "yeoman-assert": "^3.1.1",
-    "yeoman-test": "^1.9.1"
+    "yeoman-assert": "3.1.1",
+    "yeoman-test": "1.9.1"
   }
 }

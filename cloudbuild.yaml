@@ -11,7 +11,7 @@ steps:
     #      - --source=.
     #      - --trigger-http
 
-    - name: 'node:12.10.0'
+    - name: 'node:12.21.0'
       args: ['run', 'pi']
       entrypoint: 'npm'
       id: pi
@@ -23,19 +23,19 @@ steps:
     #      id: lerna
     #      waitFor:
     #          - ci
-    - name: 'node:12.10.0'
+    - name: 'node:12.21.0'
       args: ['run', 'lint']
       entrypoint: 'npm'
       id: lint
       waitFor:
           - pi
-    - name: 'node:12.10.0'
+    - name: 'node:12.21.0'
       args: ['run', 'test']
       entrypoint: 'npm'
       id: test
       waitFor:
           - pi
-    - name: 'node:12.10.0'
+    - name: 'node:12.21.0'
       args: ['run', 'build']
       entrypoint: 'npm'
       id: build
